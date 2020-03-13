@@ -1,0 +1,45 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+  border: none;
+}
+
+.App {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-column-gap: 1em;
+  grid-row-gap: 1em;
+}
+
+.dial {
+  grid-column-start: span 12;
+}
+
+.goal {
+  grid-column-start: 7;
+  grid-column-end: 13;
+}
+
+.name {
+  grid-column-start: 1;
+  grid-column-end: 7;
+}
+
+.round {
+  grid-column-start: 1;
+  grid-column-end: 7;
+}
+
+.start {
+  grid-column-start: span 12;
+}
+
+.stop {
+  grid-column-start: 7;
+  grid-column-end: 13;
+}
+
+.timer {
+  grid-column-start: span 12;
+}
