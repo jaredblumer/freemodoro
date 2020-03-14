@@ -1,5 +1,6 @@
 import React from "react";
 import "./App.css";
+import ProgressButton from "./components/ProgressButton";
 
 function App() {
   return (
@@ -10,7 +11,9 @@ function App() {
         <span>25:00</span>
       </div>
       <div className="dial"></div>
-      <div className="start"></div>
+      <div className="start">
+        <ProgressButton />
+      </div>
       <div className="round">
         <div className="round-title">Round</div>
         <div className="round-data">
