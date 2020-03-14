@@ -30,6 +30,7 @@ body {
 .goal {
   grid-column-start: 7;
   grid-column-end: 13;
+  text-align: center;
 }
 
 .name {
@@ -40,19 +41,23 @@ body {
 .round {
   grid-column-start: 1;
   grid-column-end: 7;
+  text-align: center;
 }
 
 .start {
   grid-column-start: span 12;
+  text-align: center;
 }
 
 .stop {
   grid-column-start: 7;
   grid-column-end: 13;
+  text-align: right;
 }
 
 .timer {
   grid-column-start: span 12;
+  text-align: center;
 }
 
 .timer span {
