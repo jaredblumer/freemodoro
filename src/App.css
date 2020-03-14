@@ -13,6 +13,7 @@ body {
   grid-column-gap: 1em;
   grid-row-gap: 1em;
   margin: 1em;
+  max-width: 500px;
 }
 
 .dial {
@@ -62,4 +63,10 @@ body {
 
 .timer span {
   font-size: 5.063em;
+}
+
+@media screen and (min-width: 500px) {
+  .App {
+    margin: 1em auto;
+  }
 }
