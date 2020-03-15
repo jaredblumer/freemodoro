@@ -4,8 +4,6 @@ class Timer extends React.Component {
   timerDisplay(secondsRemaining) {
     let minutes = Math.floor(secondsRemaining / 60);
     let seconds = secondsRemaining - minutes * 60;
-    console.log(minutes);
-    console.log(seconds);
     const zeroPad = num => {
       return String(num).padStart(2, "0");
     };
@@ -15,7 +13,9 @@ class Timer extends React.Component {
   render() {
     return (
       <div className="timer">
-        <span>{this.timerDisplay(this.props.secondsRemaining)}</span>
+        <span data-testid="timerDisplay">
+          {this.timerDisplay(this.props.secondsRemaining)}
+        </span>
       </div>
     );
   }
