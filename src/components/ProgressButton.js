@@ -10,25 +10,28 @@ class ProgressTemplate extends React.Component {
   }
 
   render() {
-    const { radius, stroke, progress } = this.props;
+    const { radius, stroke, progress, minutes } = this.props;
 
     const strokeDashoffset =
-      this.circumference - (progress / 100) * this.circumference;
+      this.circumference - (progress / (minutes * 60)) * this.circumference;
 
     return (
-      <svg height={radius * 2} width={radius * 2}>
-        <circle
-          stroke="black"
-          fill="transparent"
-          strokeWidth={stroke}
-          strokeDasharray={this.circumference + " " + this.circumference}
-          style={{ strokeDashoffset }}
-          stroke-width={stroke}
-          r={this.normalizedRadius}
-          cx={radius}
-          cy={radius}
-        />
-      </svg>
+      <button id="svg-button">
+        <svg id="svg" height={radius * 2} width={radius * 2}>
+          <circle
+            className="progress-bar"
+            stroke="black"
+            fill="transparent"
+            strokeWidth={stroke}
+            strokeDasharray={this.circumference + " " + this.circumference}
+            style={{ strokeDashoffset }}
+            stroke-width={stroke}
+            r={this.normalizedRadius}
+            cx={radius}
+            cy={radius}
+          />
+        </svg>
+      </button>
     );
   }
 }
@@ -38,15 +41,14 @@ class ProgressButton extends React.Component {
     super(props);
 
     this.state = {
-      progress: 0
+      progress: this.props.minutes * 60
     };
   }
 
   componentDidMount() {
-    // emulating ProgressButton
     const interval = setInterval(() => {
-      this.setState({ progress: this.state.progress + 10 });
-      if (this.state.progress === 100) {
+      this.setState({ progress: this.state.progress - 1 });
+      if (this.state.progress === 0) {
         clearInterval(interval);
       }
     }, 1000);
@@ -54,7 +56,12 @@ class ProgressButton extends React.Component {
 
   render() {
     return (
-      <ProgressTemplate radius={60} stroke={4} progress={this.state.progress} />
+      <ProgressTemplate
+        radius={60}
+        stroke={4}
+        progress={this.state.progress}
+        minutes={this.props.minutes}
+      />
     );
   }
 }

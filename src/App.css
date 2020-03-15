@@ -39,6 +39,10 @@ body {
   grid-column-end: 7;
 }
 
+.progress-bar {
+  transition: all 1s ease;
+}
+
 .round {
   grid-column-start: 1;
   grid-column-end: 7;
@@ -54,6 +58,21 @@ body {
   grid-column-start: 7;
   grid-column-end: 13;
   text-align: right;
+}
+
+#svg {
+  transform: rotate(-90deg);
+}
+
+#svg-button {
+  border: 0;
+  background-color: white;
+  cursor: pointer;
+  outline: none;
+}
+
+#svg circle {
+  transition: all 1s linear;
 }
 
 .timer {
