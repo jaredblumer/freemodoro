@@ -1,9 +1,13 @@
 import React from "react";
 import ProgressButton from "./ProgressButton";
+import Timer from "./Timer";
 
 class Pomodoro extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+      secondsRemaining: 1500
+    };
   }
 
   render() {
@@ -11,9 +15,7 @@ class Pomodoro extends React.Component {
       <div className="App">
         <div className="name">Freemodoro</div>
         <div className="stop">Stop</div>
-        <div className="timer">
-          <span>25:00</span>
-        </div>
+        <Timer secondsRemaining={this.state.secondsRemaining} />
         <div className="dial"></div>
         <div className="start">
           <ProgressButton minutes={25} />
