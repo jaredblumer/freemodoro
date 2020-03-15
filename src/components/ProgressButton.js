@@ -25,7 +25,6 @@ class ProgressTemplate extends React.Component {
             strokeWidth={stroke}
             strokeDasharray={this.circumference + " " + this.circumference}
             style={{ strokeDashoffset }}
-            stroke-width={stroke}
             r={this.normalizedRadius}
             cx={radius}
             cy={radius}
