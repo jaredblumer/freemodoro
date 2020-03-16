@@ -7,8 +7,39 @@ class Pomodoro extends React.Component {
     super(props);
     this.state = {
       secondsStart: 1500,
-      secondsRemaining: 1500
+      secondsRemaining: 1500,
+      timerOn: false,
+      timerInterval: null
     };
+    this.timer = this.timer.bind(this);
+  }
+
+  componentDidMount() {}
+
+  timer() {
+    if (!this.state.timerOn) {
+      this.setState({
+        timerInterval: setInterval(() => {
+          this.setState(prevState => ({
+            secondsRemaining: prevState.secondsRemaining - 1
+          }));
+        }, 1000)
+      });
+      setTimeout(
+        this.setState({
+          timerOn: true
+        }),
+        1500
+      );
+    } else {
+      clearInterval(this.state.timerInterval);
+      setTimeout(
+        this.setState(prevState => ({
+          timerOn: false
+        })),
+        1500
+      );
+    }
   }
 
   render() {
@@ -19,10 +50,12 @@ class Pomodoro extends React.Component {
         <Timer secondsRemaining={this.state.secondsRemaining} />
         <div className="dial"></div>
         <div className="start">
-          <ProgressButton
-            secondsRemaining={this.state.secondsRemaining}
-            secondsStart={this.state.secondsStart}
-          />
+          <button id="svg-button" onClick={this.timer}>
+            <ProgressButton
+              secondsRemaining={this.state.secondsRemaining}
+              secondsStart={this.state.secondsStart}
+            />
+          </button>
         </div>
         <div className="round">
           <div className="round-title">Round</div>

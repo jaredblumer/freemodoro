@@ -12,21 +12,19 @@ class ProgressButton extends React.Component {
       (this.props.secondsRemaining / this.props.secondsStart) * circumference;
 
     return (
-      <button id="svg-button">
-        <svg id="svg" height={radius * 2} width={radius * 2}>
-          <circle
-            className="progress-bar"
-            stroke="black"
-            fill="transparent"
-            strokeWidth={stroke}
-            strokeDasharray={circumference + " " + circumference}
-            style={{ strokeDashoffset }}
-            r={normalizedRadius}
-            cx={radius}
-            cy={radius}
-          />
-        </svg>
-      </button>
+      <svg id="svg" height={radius * 2} width={radius * 2}>
+        <circle
+          className="progress-bar"
+          stroke="black"
+          fill="transparent"
+          strokeWidth={stroke}
+          strokeDasharray={circumference + " " + circumference}
+          style={{ strokeDashoffset }}
+          r={normalizedRadius}
+          cx={radius}
+          cy={radius}
+        />
+      </svg>
     );
   }
 }
