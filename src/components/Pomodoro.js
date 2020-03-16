@@ -14,15 +14,17 @@ class Pomodoro extends React.Component {
     this.timer = this.timer.bind(this);
   }
 
-  componentDidMount() {}
-
   timer() {
     if (!this.state.timerOn) {
       this.setState({
         timerInterval: setInterval(() => {
-          this.setState(prevState => ({
-            secondsRemaining: prevState.secondsRemaining - 1
-          }));
+          if (this.state.secondsRemaining > 0) {
+            this.setState(prevState => ({
+              secondsRemaining: prevState.secondsRemaining - 1
+            }));
+          } else {
+            clearInterval(this.state.timerInterval);
+          }
         }, 1000)
       });
       setTimeout(
