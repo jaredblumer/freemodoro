@@ -6,6 +6,7 @@ class Pomodoro extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      secondsStart: 1500,
       secondsRemaining: 1500
     };
   }
@@ -18,7 +19,10 @@ class Pomodoro extends React.Component {
         <Timer secondsRemaining={this.state.secondsRemaining} />
         <div className="dial"></div>
         <div className="start">
-          <ProgressButton minutes={25} />
+          <ProgressButton
+            secondsRemaining={this.state.secondsRemaining}
+            secondsStart={this.state.secondsStart}
+          />
         </div>
         <div className="round">
           <div className="round-title">Round</div>
