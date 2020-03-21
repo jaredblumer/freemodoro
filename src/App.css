@@ -3,6 +3,7 @@ body,
 button {
   font-family: "Dosis", sans-serif;
   font-size: 24px;
+  line-height: 1em;
   margin: 0;
   padding: 0;
   border: none;
@@ -13,6 +14,7 @@ button {
   grid-template-columns: repeat(12, 1fr);
   grid-column-gap: 1em;
   grid-row-gap: 1em;
+  height: 100vh;
   margin: 1em;
   max-width: 500px;
 }
@@ -28,8 +30,12 @@ button {
   grid-column-start: span 12;
 }
 
+.fa-bars {
+  font-size: 0.889em;
+}
+
 .footer-data-current {
-  font-size: 1.5em;
+  font-size: 1em;
 }
 
 .footer-data-goal {
@@ -40,6 +46,12 @@ button {
   grid-column-start: 7;
   grid-column-end: 13;
   text-align: center;
+}
+
+.menu {
+  grid-column-start: 7;
+  grid-column-end: 13;
+  text-align: right;
 }
 
 .name {
@@ -62,18 +74,16 @@ button {
   text-align: center;
 }
 
-.stop {
-  grid-column-start: 7;
-  grid-column-end: 13;
-  text-align: right;
-}
-
 #svg {
   transform: rotate(-90deg);
 }
 
 #svg circle {
   transition: all 1s linear;
+}
+
+#root {
+  height: 100vh;
 }
 
 .timer {

@@ -57,7 +57,9 @@ class Pomodoro extends React.Component {
     return (
       <div className="App">
         <div className="name">Freemodoro</div>
-        <div className="stop">Stop</div>
+        <div className="menu">
+          <i class="fas fa-bars"></i>
+        </div>
         <div className="timer">
           <button data-testid="timer-display" onClick={this.resetTimer}>
             <Timer secondsRemaining={this.state.secondsRemaining} />
