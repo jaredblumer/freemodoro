@@ -63,7 +63,6 @@ class Pomodoro extends React.Component {
             <Timer secondsRemaining={this.state.secondsRemaining} />
           </button>
         </div>
-        <div className="dial"></div>
         <div className="start">
           <button
             id="svg-button"
