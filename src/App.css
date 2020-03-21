@@ -1,5 +1,6 @@
 html,
-body {
+body,
+button {
   font-family: "Dosis", sans-serif;
   font-size: 24px;
   margin: 0;
@@ -14,6 +15,13 @@ body {
   grid-row-gap: 1em;
   margin: 1em;
   max-width: 500px;
+}
+
+button {
+  border: 0;
+  background-color: white;
+  cursor: pointer;
+  outline: none;
 }
 
 .dial {
@@ -64,13 +72,6 @@ body {
   transform: rotate(-90deg);
 }
 
-#svg-button {
-  border: 0;
-  background-color: white;
-  cursor: pointer;
-  outline: none;
-}
-
 #svg circle {
   transition: all 1s linear;
 }
@@ -80,7 +81,7 @@ body {
   text-align: center;
 }
 
-.timer span {
+.timer button {
   font-size: 5.063em;
 }
 

@@ -12,11 +12,9 @@ class Timer extends React.Component {
 
   render() {
     return (
-      <div className="timer">
-        <span data-testid="timerDisplay">
-          {this.timerDisplay(this.props.secondsRemaining)}
-        </span>
-      </div>
+      <span data-testid="timerDisplay">
+        {this.timerDisplay(this.props.secondsRemaining)}
+      </span>
     );
   }
 }

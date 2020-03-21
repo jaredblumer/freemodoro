@@ -11,7 +11,16 @@ class Pomodoro extends React.Component {
       timerOn: false,
       timerInterval: null
     };
+    this.resetTimer = this.resetTimer.bind(this);
     this.timer = this.timer.bind(this);
+  }
+
+  resetTimer() {
+    this.setState({
+      secondsRemaining: this.state.secondsStart,
+      timerOn: false
+    });
+    clearInterval(this.state.timerInterval);
   }
 
   timer() {
@@ -49,7 +58,11 @@ class Pomodoro extends React.Component {
       <div className="App">
         <div className="name">Freemodoro</div>
         <div className="stop">Stop</div>
-        <Timer secondsRemaining={this.state.secondsRemaining} />
+        <div className="timer">
+          <button data-testid="timer-display" onClick={this.resetTimer}>
+            <Timer secondsRemaining={this.state.secondsRemaining} />
+          </button>
+        </div>
         <div className="dial"></div>
         <div className="start">
           <button
