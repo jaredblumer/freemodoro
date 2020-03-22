@@ -10,12 +10,8 @@ button {
 }
 
 .App {
-  display: grid;
-  grid-template-columns: repeat(12, 1fr);
-  grid-column-gap: 1em;
-  grid-row-gap: 1em;
-  height: 100vh;
-  margin: 1em;
+  height: calc(100vh);
+  margin: 0 1em;
   max-width: 500px;
 }
 
@@ -24,10 +20,6 @@ button {
   background-color: white;
   cursor: pointer;
   outline: none;
-}
-
-.dial {
-  grid-column-start: span 12;
 }
 
 .fa-bars {
@@ -42,35 +34,46 @@ button {
   font-size: 0.667em;
 }
 
+.data {
+  align-items: center;
+  display: flex;
+  height: calc(22.5vh);
+  justify-content: center;
+}
+
+.data div {
+  margin: 0 auto;
+  text-align: center;
+  width: 50%;
+}
+
 .goal {
-  grid-column-start: 7;
-  grid-column-end: 13;
   text-align: center;
 }
 
-.menu {
-  grid-column-start: 7;
-  grid-column-end: 13;
-  text-align: right;
+header {
+  align-items: center;
+  display: flex;
+  height: calc(12.5vh);
 }
 
-.name {
-  grid-column-start: 1;
-  grid-column-end: 7;
+header div {
+  width: 50%;
+}
+
+.menu {
+  text-align: right;
 }
 
 .progress-bar {
   transition: all 1s ease;
 }
 
-.round {
-  grid-column-start: 1;
-  grid-column-end: 7;
-  text-align: center;
-}
-
 .start {
-  grid-column-start: span 12;
+  align-items: start;
+  display: flex;
+  height: calc(25vh);
+  justify-content: center;
   text-align: center;
 }
 
@@ -82,13 +85,11 @@ button {
   transition: all 1s linear;
 }
 
-#root {
-  height: 100vh;
-}
-
 .timer {
-  grid-column-start: span 12;
-  text-align: center;
+  align-items: center;
+  display: flex;
+  height: calc(40vh);
+  justify-content: center;
 }
 
 .timer button {
@@ -97,6 +98,6 @@ button {
 
 @media screen and (min-width: 500px) {
   .App {
-    margin: 1em auto;
+    margin: 0 auto;
   }
 }
