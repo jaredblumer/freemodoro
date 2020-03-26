@@ -1,7 +1,7 @@
 "use strict";
 
 import React from "react";
-import { cleanup, fireEvent, render } from "@testing-library/react";
+import { fireEvent, render } from "@testing-library/react";
 import Pomodoro from "./Pomodoro";
 
 jest.useFakeTimers();
@@ -26,4 +26,13 @@ test("Clicking timer display resets timer after timer start", () => {
   expect(display.textContent).toBe("24:59");
   fireEvent.click(getByTestId("timer-display"));
   expect(display.textContent).toBe("25:00");
+});
+
+test("Clicking menu button opens and closes navigation menu", () => {
+  const { getByTestId } = render(<Pomodoro />);
+  expect(getByTestId("nav")).not.toBeVisible();
+  fireEvent.click(getByTestId("menu-button"));
+  expect(getByTestId("nav")).toBeVisible();
+  fireEvent.click(getByTestId("menu-button"));
+  expect(getByTestId("nav")).not.toBeVisible();
 });
