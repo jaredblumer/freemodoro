@@ -11,8 +11,20 @@ class Pomodoro extends React.Component {
       timerOn: false,
       timerInterval: null
     };
+    this.handleNav = this.handleNav.bind(this);
     this.resetTimer = this.resetTimer.bind(this);
     this.timer = this.timer.bind(this);
+  }
+
+  handleNav() {
+    let nav = document.getElementById("nav");
+    if (!nav.classList.contains("nav-active")) {
+      nav.style.visibility = "visible";
+      nav.classList.add("nav-active");
+    } else {
+      nav.classList.remove("nav-active");
+      nav.style.visibility = "hidden";
+    }
   }
 
   resetTimer() {
@@ -59,10 +71,20 @@ class Pomodoro extends React.Component {
         <header>
           <div className="name">Freemodoro</div>
           <div className="menu">
-            <i class="fas fa-bars"></i>
+            <i
+              className="fas fa-bars menu-button"
+              data-testid="menu-button"
+              onClick={this.handleNav}
+            ></i>
           </div>
         </header>
-
+        <nav id="nav" data-testid="nav" style={{ visibility: "hidden" }}>
+          <ul>
+            <li>Sign In</li>
+            <li>Charts</li>
+            <li>Options</li>
+          </ul>
+        </nav>
         <div className="timer">
           <button data-testid="timer-display" onClick={this.resetTimer}>
             <Timer secondsRemaining={this.state.secondsRemaining} />

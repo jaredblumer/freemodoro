@@ -11,7 +11,7 @@ button {
 
 .App {
   height: calc(100vh);
-  margin: 0 1em;
+  margin: 0;
   max-width: 500px;
 }
 
@@ -53,16 +53,50 @@ button {
 
 header {
   align-items: center;
+  background-color: white;
   display: flex;
   height: calc(12.5vh);
+  padding: 0 1em;
+  z-index: 999;
 }
 
 header div {
   width: 50%;
+  z-index: 2;
 }
 
 .menu {
   text-align: right;
+}
+
+.menu-button {
+  cursor: pointer;
+}
+
+nav {
+  background-color: gray;
+  margin-top: -50%;
+  max-width: 500px;
+  overflow: hidden;
+  position: fixed;
+  transition: 1s;
+  width: 100%;
+  z-index: 0;
+}
+
+.nav-active {
+  margin-top: 10px;
+}
+
+nav ul {
+  list-style-type: none;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+}
+
+nav li {
+  margin: 1em;
 }
 
 .progress-bar {
