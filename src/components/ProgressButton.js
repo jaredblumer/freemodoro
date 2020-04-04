@@ -10,24 +10,46 @@ class ProgressButton extends React.Component {
     const strokeDashoffset =
       circumference -
       (this.props.secondsRemaining / this.props.secondsStart) * circumference;
-
-    return (
-      <svg id="svg" height={radius * 2} width={radius * 2}>
-        <circle
-          className="progress-bar"
-          stroke="black"
-          fill="transparent"
-          strokeWidth={stroke}
-          strokeDasharray={circumference + " " + circumference}
-          style={{ strokeDashoffset }}
-          r={normalizedRadius}
-          cx={radius}
-          cy={radius}
-        />
-        <circle fill="green" cx={radius} cy={radius} r={radius - 14} />
-        <polygon points="50,50 60,70, 70,50" />
-      </svg>
-    );
+    if (this.props.timerOn) {
+      // Render pause button
+      return (
+        <svg id="svg" height={radius * 2} width={radius * 2}>
+          <circle
+            className="progress-bar"
+            stroke="black"
+            fill="transparent"
+            strokeWidth={stroke}
+            strokeDasharray={circumference + " " + circumference}
+            style={{ strokeDashoffset }}
+            r={normalizedRadius}
+            cx={radius}
+            cy={radius}
+          />
+          <circle fill="green" cx={radius} cy={radius} r={radius - 14} />
+          <polygon points="50,50 70,50 70,55 50,55" />
+          <polygon points="50,65 70,65 70,70 50,70" />
+        </svg>
+      );
+    } else {
+      // Render start button
+      return (
+        <svg id="svg" height={radius * 2} width={radius * 2}>
+          <circle
+            className="progress-bar"
+            stroke="black"
+            fill="transparent"
+            strokeWidth={stroke}
+            strokeDasharray={circumference + " " + circumference}
+            style={{ strokeDashoffset }}
+            r={normalizedRadius}
+            cx={radius}
+            cy={radius}
+          />
+          <circle fill="green" cx={radius} cy={radius} r={radius - 14} />
+          <polygon points="50,50 60,70 70,50" />
+        </svg>
+      );
+    }
   }
 }
 

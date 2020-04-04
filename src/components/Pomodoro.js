@@ -99,6 +99,7 @@ class Pomodoro extends React.Component {
             <ProgressButton
               secondsRemaining={this.state.secondsRemaining}
               secondsStart={this.state.secondsStart}
+              timerOn={this.state.timerOn}
             />
           </button>
         </div>
