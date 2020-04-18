@@ -132,8 +132,6 @@ class Pomodoro extends React.Component {
 }
 
 const mapStateToProps = state => {
-  console.log("mapstatetoprops called");
-  console.log(state);
   return {
     currentGoal: state.data.currentGoal,
     currentRound: state.data.currentRound,
