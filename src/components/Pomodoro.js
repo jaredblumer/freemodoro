@@ -113,16 +113,16 @@ class Pomodoro extends React.Component {
               <span className="footer-data-current">
                 {this.props.currentRound}
               </span>
-              <span className="footer-data-goal">/4</span>
+              <span className="footer-data-goal">/{this.props.totalRound}</span>
             </div>
           </div>
           <div className="goal">
             <div className="goal-title">Goal</div>
             <div className="goal-data">
-              <span className="footer-data-current">0</span>
-              <span className="footer-data-goal">/12</span>
-              <br />
-              <button onClick={this.props.incrementRound}>Test</button>
+              <span className="footer-data-current">
+                {this.props.currentGoal}
+              </span>
+              <span className="footer-data-goal">/{this.props.totalGoal}</span>
             </div>
           </div>
         </div>
@@ -135,7 +135,10 @@ const mapStateToProps = state => {
   console.log("mapstatetoprops called");
   console.log(state);
   return {
-    currentRound: state.data.currentRound
+    currentGoal: state.data.currentGoal,
+    currentRound: state.data.currentRound,
+    totalGoal: state.data.totalGoal,
+    totalRound: state.data.totalRound
   };
 };
 
