@@ -1,6 +1,9 @@
 import React from "react";
+import PropTypes from "prop-types";
+import { connect } from "react-redux";
 import ProgressButton from "./ProgressButton";
 import Timer from "./Timer";
+import { incrementRound } from "../actions/timerActions";
 
 class Pomodoro extends React.Component {
   constructor(props) {
@@ -107,7 +110,9 @@ class Pomodoro extends React.Component {
           <div className="round">
             <div className="round-title">Round</div>
             <div className="round-data">
-              <span className="footer-data-current">0</span>
+              <span className="footer-data-current">
+                {this.props.currentRound}
+              </span>
               <span className="footer-data-goal">/4</span>
             </div>
           </div>
@@ -116,6 +121,8 @@ class Pomodoro extends React.Component {
             <div className="goal-data">
               <span className="footer-data-current">0</span>
               <span className="footer-data-goal">/12</span>
+              <br />
+              <button onClick={this.props.incrementRound}>Test</button>
             </div>
           </div>
         </div>
@@ -124,4 +131,16 @@ class Pomodoro extends React.Component {
   }
 }
 
-export default Pomodoro;
+const mapStateToProps = state => {
+  console.log("mapstatetoprops called");
+  console.log(state);
+  return {
+    currentRound: state.data.currentRound
+  };
+};
+
+Pomodoro.propTypes = {
+  incrementRound: PropTypes.func.isRequired
+};
+
+export default connect(mapStateToProps, { incrementRound })(Pomodoro);
