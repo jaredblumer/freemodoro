@@ -48,6 +48,7 @@ class Pomodoro extends React.Component {
             }));
           } else {
             clearInterval(this.state.timerInterval);
+            this.props.incrementRound();
           }
         }, 1000)
       });
@@ -110,7 +111,7 @@ class Pomodoro extends React.Component {
           <div className="round">
             <div className="round-title">Round</div>
             <div className="round-data">
-              <span className="footer-data-current">
+              <span className="footer-data-current" data-testid="currentRound">
                 {this.props.currentRound}
               </span>
               <span className="footer-data-goal">/{this.props.totalRound}</span>
