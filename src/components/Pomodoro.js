@@ -9,11 +9,11 @@ class Pomodoro extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      onBreak: false,
       secondsStart: 10,
       secondsRemaining: 10,
       timerOn: false,
-      timerInterval: null,
-      break: false
+      timerInterval: null
     };
     this.handleNav = this.handleNav.bind(this);
     this.resetTimer = this.resetTimer.bind(this);
@@ -48,11 +48,20 @@ class Pomodoro extends React.Component {
               secondsRemaining: prevState.secondsRemaining - 1
             }));
           } else {
-            this.props.incrementRound();
-            this.setState({
-              secondsStart: 10,
-              secondsRemaining: 10
-            });
+            if (!this.state.onBreak) {
+              this.props.incrementRound();
+              this.setState({
+                onBreak: true,
+                secondsStart: 5,
+                secondsRemaining: 5
+              });
+            } else {
+              this.setState({
+                onBreak: false,
+                secondsStart: 10,
+                secondsRemaining: 10
+              });
+            }
           }
         }, 1000),
         timerOn: true
