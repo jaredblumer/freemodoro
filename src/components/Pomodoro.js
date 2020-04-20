@@ -49,6 +49,8 @@ class Pomodoro extends React.Component {
             }));
           } else {
             if (!this.state.onBreak) {
+              // Update break background color
+              document.body.style.backgroundColor = "green";
               this.props.incrementRound();
               this.setState({
                 onBreak: true,
@@ -56,6 +58,8 @@ class Pomodoro extends React.Component {
                 secondsRemaining: 5
               });
             } else {
+              // Update active round background color
+              document.body.style.backgroundColor = "white";
               this.setState({
                 onBreak: false,
                 secondsStart: 10,
