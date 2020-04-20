@@ -3,7 +3,7 @@ import { INCREMENT_ROUND } from "../actions/types";
 export default function(state, action) {
   switch (action.type) {
     case INCREMENT_ROUND:
-      if (state.data.currentRound === state.data.totalRound) {
+      if (state.data.currentRound === state.data.totalRound - 1) {
         return {
           ...state,
           data: {
