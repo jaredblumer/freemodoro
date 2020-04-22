@@ -1,1 +1,2 @@
 export const INCREMENT_ROUND = "INCREMENT_ROUND";
+export const TOGGLE_BREAK = "TOGGLE_BREAK";

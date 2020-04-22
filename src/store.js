@@ -11,7 +11,9 @@ const initialState = {
     currentRound: 0,
     totalRound: 4,
     currentGoal: 0,
-    totalGoal: 12
+    totalGoal: 12,
+    onBreak: false,
+    secondsStart: 10
   }
 };
 

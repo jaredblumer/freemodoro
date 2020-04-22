@@ -1,4 +1,4 @@
-import { INCREMENT_ROUND } from "../actions/types";
+import { INCREMENT_ROUND, TOGGLE_BREAK } from "../actions/types";
 
 export default function(state, action) {
   switch (action.type) {
@@ -22,7 +22,14 @@ export default function(state, action) {
           }
         };
       }
-
+    case TOGGLE_BREAK:
+      return {
+        ...state,
+        data: {
+          ...state.data,
+          onBreak: !state.data.onBreak
+        }
+      };
     default:
       return state;
   }

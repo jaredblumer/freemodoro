@@ -3,14 +3,12 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import ProgressButton from "./ProgressButton";
 import Timer from "./Timer";
-import { incrementRound } from "../actions/timerActions";
+import { incrementRound, toggleBreak } from "../actions/timerActions";
 
 class Pomodoro extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      onBreak: false,
-      secondsStart: 10,
       secondsRemaining: 10,
       timerOn: false,
       timerInterval: null
@@ -33,7 +31,7 @@ class Pomodoro extends React.Component {
 
   resetTimer() {
     this.setState({
-      secondsRemaining: this.state.secondsStart,
+      secondsRemaining: this.props.secondsStart,
       timerOn: false
     });
     clearInterval(this.state.timerInterval);
@@ -48,21 +46,19 @@ class Pomodoro extends React.Component {
               secondsRemaining: prevState.secondsRemaining - 1
             }));
           } else {
-            if (!this.state.onBreak) {
+            if (!this.props.onBreak) {
               // Update break background color
               document.body.style.backgroundColor = "green";
               this.props.incrementRound();
+              this.props.toggleBreak();
               this.setState({
-                onBreak: true,
-                secondsStart: 5,
                 secondsRemaining: 5
               });
             } else {
               // Update active round background color
+              this.props.toggleBreak();
               document.body.style.backgroundColor = "white";
               this.setState({
-                onBreak: false,
-                secondsStart: 10,
                 secondsRemaining: 10
               });
             }
@@ -114,7 +110,7 @@ class Pomodoro extends React.Component {
           >
             <ProgressButton
               secondsRemaining={this.state.secondsRemaining}
-              secondsStart={this.state.secondsStart}
+              secondsStart={this.props.secondsStart}
               timerOn={this.state.timerOn}
             />
           </button>
@@ -149,7 +145,8 @@ const mapStateToProps = state => {
     currentGoal: state.data.currentGoal,
     currentRound: state.data.currentRound,
     totalGoal: state.data.totalGoal,
-    totalRound: state.data.totalRound
+    totalRound: state.data.totalRound,
+    onBreak: state.data.onBreak
   };
 };
 
@@ -157,4 +154,6 @@ Pomodoro.propTypes = {
   incrementRound: PropTypes.func.isRequired
 };
 
-export default connect(mapStateToProps, { incrementRound })(Pomodoro);
+export default connect(mapStateToProps, { incrementRound, toggleBreak })(
+  Pomodoro
+);
