@@ -4,18 +4,20 @@ import { connect } from "react-redux";
 import ProgressButton from "./ProgressButton";
 import Timer from "./Timer";
 import { incrementRound, toggleBreak } from "../actions/timerActions";
+import { Link } from "react-router-dom";
 
 class Pomodoro extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      secondsRemaining: 10,
+      secondsRemaining: this.determineSecondsStart(),
       timerOn: false,
       timerInterval: null
     };
     this.handleNav = this.handleNav.bind(this);
     this.resetTimer = this.resetTimer.bind(this);
     this.timer = this.timer.bind(this);
+    this.determineSecondsStart = this.determineSecondsStart.bind(this);
   }
 
   handleNav() {
@@ -29,9 +31,17 @@ class Pomodoro extends React.Component {
     }
   }
 
+  determineSecondsStart() {
+    if (this.props.onBreak) {
+      return this.props.breakLength;
+    } else {
+      return this.props.roundLength;
+    }
+  }
+
   resetTimer() {
     this.setState({
-      secondsRemaining: this.props.secondsStart,
+      secondsRemaining: this.determineSecondsStart(),
       timerOn: false
     });
     clearInterval(this.state.timerInterval);
@@ -94,7 +104,9 @@ class Pomodoro extends React.Component {
           <ul>
             <li>Sign In</li>
             <li>Charts</li>
-            <li>Options</li>
+            <li>
+              <Link to="/settings">Options</Link>
+            </li>
           </ul>
         </nav>
         <div className="timer">
@@ -110,7 +122,7 @@ class Pomodoro extends React.Component {
           >
             <ProgressButton
               secondsRemaining={this.state.secondsRemaining}
-              secondsStart={this.props.secondsStart}
+              secondsStart={this.determineSecondsStart()}
               timerOn={this.state.timerOn}
             />
           </button>
@@ -146,7 +158,9 @@ const mapStateToProps = state => {
     currentRound: state.data.currentRound,
     totalGoal: state.data.totalGoal,
     totalRound: state.data.totalRound,
-    onBreak: state.data.onBreak
+    onBreak: state.data.onBreak,
+    breakLength: state.data.breakLength,
+    roundLength: state.data.roundLength
   };
 };
 
