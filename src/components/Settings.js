@@ -11,7 +11,6 @@ class Settings extends React.Component {
 
   componentDidMount() {
     var inputs = document.getElementsByTagName("input");
-    console.log(inputs);
     for (let i = 0; i < 5; i++) {
       let id = inputs[i].getAttribute("id");
       this.renderValue(id);
@@ -28,7 +27,7 @@ class Settings extends React.Component {
       <div>
         <h1>Settings</h1>
         <div>
-          <label for="roundLength">Round Length</label>
+          <label htmlFor="roundLength">Round Length</label>
           <input
             type="range"
             id="roundLength"
@@ -42,7 +41,7 @@ class Settings extends React.Component {
           <output id="roundLengthOutput"></output>
         </div>
         <div>
-          <label for="shortBreakLength">Short Break Length</label>
+          <label htmlFor="shortBreakLength">Short Break Length</label>
           <input
             type="range"
             id="shortBreakLength"
@@ -56,7 +55,7 @@ class Settings extends React.Component {
           <output id="shortBreakLengthOutput"></output>
         </div>
         <div>
-          <label for="longBreakLength">Short Break Length</label>
+          <label htmlFor="longBreakLength">Short Break Length</label>
           <input
             type="range"
             id="longBreakLength"
@@ -71,7 +70,7 @@ class Settings extends React.Component {
         </div>
 
         <div>
-          <label for="sessionsPerRound">Sessions Per Round</label>
+          <label htmlFor="sessionsPerRound">Sessions Per Round</label>
           <input
             type="range"
             id="sessionsPerRound"
@@ -85,7 +84,7 @@ class Settings extends React.Component {
           <output id="sessionsPerRoundOutput"></output>
         </div>
         <div>
-          <label for="dailyGoal">Daily Goal</label>
+          <label htmlFor="dailyGoal">Daily Goal</label>
           <input
             type="range"
             id="dailyGoal"
@@ -99,7 +98,7 @@ class Settings extends React.Component {
           <output id="dailyGoalOutput"></output>
         </div>
         <div>
-          <label for="autoResetTime">Auto-Reset Time</label>
+          <label htmlFor="autoResetTime">Auto-Reset Time</label>
         </div>
 
         <Link to="/">Home</Link>
