@@ -2,15 +2,17 @@ import React from "react";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
+import { saveSettings } from "../actions/timerActions";
 
 class Settings extends React.Component {
   constructor(props) {
     super(props);
     this.renderValue = this.renderValue.bind(this);
+    this.save = this.save.bind(this);
   }
 
   componentDidMount() {
-    var inputs = document.getElementsByTagName("input");
+    let inputs = document.getElementsByTagName("input");
     for (let i = 0; i < 5; i++) {
       let id = inputs[i].getAttribute("id");
       this.renderValue(id);
@@ -20,6 +22,17 @@ class Settings extends React.Component {
   renderValue(id) {
     let value = document.getElementById(id).value;
     document.getElementById(id + "Output").innerHTML = value;
+  }
+
+  save() {
+    let object = {};
+    object.totalRound = document.getElementById("sessionsPerRoundOutput").value;
+    object.totalGoal = document.getElementById("dailyGoalOutput").value;
+    object.breakLength = document.getElementById(
+      "shortBreakLengthOutput"
+    ).value;
+    object.roundLength = document.getElementById("roundLengthOutput").value;
+    this.props.saveSettings(object);
   }
 
   render() {
@@ -35,7 +48,7 @@ class Settings extends React.Component {
             min="1"
             max="60"
             step="1"
-            defaultValue="25"
+            defaultValue={this.props.roundLength}
             onChange={id => this.renderValue("roundLength")}
           />
           <output id="roundLengthOutput"></output>
@@ -49,7 +62,7 @@ class Settings extends React.Component {
             min="1"
             max="60"
             step="1"
-            defaultValue="5"
+            defaultValue={this.props.breakLength}
             onChange={id => this.renderValue("shortBreakLength")}
           />
           <output id="shortBreakLengthOutput"></output>
@@ -78,7 +91,7 @@ class Settings extends React.Component {
             min="1"
             max="20"
             step="1"
-            defaultValue="4"
+            defaultValue={this.props.totalRound}
             onChange={id => this.renderValue("sessionsPerRound")}
           />
           <output id="sessionsPerRoundOutput"></output>
@@ -92,7 +105,7 @@ class Settings extends React.Component {
             min="1"
             max="60"
             step="1"
-            defaultValue="12"
+            defaultValue={this.props.totalGoal}
             onChange={id => this.renderValue("dailyGoal")}
           />
           <output id="dailyGoalOutput"></output>
@@ -100,16 +113,29 @@ class Settings extends React.Component {
         <div>
           <label htmlFor="autoResetTime">Auto-Reset Time</label>
         </div>
-
+        <div>
+          <button onClick={this.save}>Save</button>
+        </div>
         <Link to="/">Home</Link>
       </div>
     );
   }
 }
 
-export default Settings;
+const mapStateToProps = state => {
+  return {
+    currentGoal: state.data.currentGoal,
+    currentRound: state.data.currentRound,
+    totalGoal: state.data.totalGoal,
+    totalRound: state.data.totalRound,
+    onBreak: state.data.onBreak,
+    breakLength: state.data.breakLength,
+    roundLength: state.data.roundLength
+  };
+};
 
-// Pomodoro.propTypes = {
-//   incrementRound: PropTypes.func.isRequired
-// };
-// export default connect(mapStateToProps, { incrementRound })(Pomodoro);
+Settings.propTypes = {
+  saveSettings: PropTypes.func.isRequired
+};
+
+export default connect(mapStateToProps, { saveSettings })(Settings);

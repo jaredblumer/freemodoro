@@ -1,4 +1,4 @@
-import { INCREMENT_ROUND, TOGGLE_BREAK } from "../actions/types";
+import { INCREMENT_ROUND, TOGGLE_BREAK, SAVE_SETTINGS } from "../actions/types";
 
 export default function(state, action) {
   switch (action.type) {
@@ -28,6 +28,18 @@ export default function(state, action) {
         data: {
           ...state.data,
           onBreak: !state.data.onBreak
+        }
+      };
+    case SAVE_SETTINGS:
+      console.log(action.payload);
+      return {
+        ...state,
+        data: {
+          ...state.data,
+          breakLength: action.payload.breakLength,
+          roundLength: action.payload.roundLength,
+          totalGoal: action.payload.totalGoal,
+          totalRound: action.payload.totalRound
         }
       };
     default:
