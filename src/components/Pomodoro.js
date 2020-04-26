@@ -62,14 +62,14 @@ class Pomodoro extends React.Component {
               this.props.incrementRound();
               this.props.toggleBreak();
               this.setState({
-                secondsRemaining: 5
+                secondsRemaining: this.determineSecondsStart()
               });
             } else {
               // Update active round background color
               this.props.toggleBreak();
               document.body.style.backgroundColor = "white";
               this.setState({
-                secondsRemaining: 10
+                secondsRemaining: this.determineSecondsStart()
               });
             }
           }
