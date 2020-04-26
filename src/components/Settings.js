@@ -31,6 +31,9 @@ class Settings extends React.Component {
     object.shortBreakLength = document.getElementById(
       "shortBreakLengthOutput"
     ).value;
+    object.longBreakLength = document.getElementById(
+      "longBreakLengthOutput"
+    ).value;
     object.roundLength = document.getElementById("roundLengthOutput").value;
     this.props.saveSettings(object);
   }
@@ -128,6 +131,7 @@ const mapStateToProps = state => {
     totalGoal: state.data.totalGoal,
     totalRound: state.data.totalRound,
     onBreak: state.data.onBreak,
+    breakType: state.data.breakType,
     shortBreakLength: state.data.shortBreakLength,
     longBreakLength: state.data.longBreakLength,
     roundLength: state.data.roundLength

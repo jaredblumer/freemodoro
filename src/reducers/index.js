@@ -9,7 +9,8 @@ export default function(state, action) {
           data: {
             ...state.data,
             currentRound: 0,
-            currentGoal: state.data.currentGoal + 1
+            currentGoal: state.data.currentGoal + 1,
+            breakType: "long"
           }
         };
       } else {
@@ -18,7 +19,8 @@ export default function(state, action) {
           data: {
             ...state.data,
             currentRound: state.data.currentRound + 1,
-            currentGoal: state.data.currentGoal + 1
+            currentGoal: state.data.currentGoal + 1,
+            breakType: "short"
           }
         };
       }

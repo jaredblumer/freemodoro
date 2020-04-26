@@ -13,6 +13,7 @@ const initialState = {
     currentGoal: 0,
     totalGoal: 12,
     onBreak: false,
+    breakType: "short",
     shortBreakLength: 5,
     longBreakLength: 25,
     roundLength: 10

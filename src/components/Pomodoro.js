@@ -33,7 +33,11 @@ class Pomodoro extends React.Component {
 
   determineSecondsStart() {
     if (this.props.onBreak) {
-      return this.props.shortBreakLength;
+      if (this.props.breakType === "short") {
+        return this.props.shortBreakLength;
+      } else {
+        return this.props.longBreakLength;
+      }
     } else {
       return this.props.roundLength;
     }
@@ -57,15 +61,15 @@ class Pomodoro extends React.Component {
             }));
           } else {
             if (!this.props.onBreak) {
-              // Update break background color
+              // Set up break
               document.body.style.backgroundColor = "green";
               this.props.incrementRound();
-              this.props.toggleBreak();
+              this.props.toggleBreak(); // Turn break on
               this.setState({
                 secondsRemaining: this.determineSecondsStart()
               });
             } else {
-              // Update active round background color
+              // Set up active round
               this.props.toggleBreak();
               document.body.style.backgroundColor = "white";
               this.setState({
@@ -159,6 +163,7 @@ const mapStateToProps = state => {
     totalGoal: state.data.totalGoal,
     totalRound: state.data.totalRound,
     onBreak: state.data.onBreak,
+    breakType: state.data.breakType,
     shortBreakLength: state.data.shortBreakLength,
     longBreakLength: state.data.longBreakLength,
     roundLength: state.data.roundLength
