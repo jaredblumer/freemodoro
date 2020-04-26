@@ -31,12 +31,12 @@ export default function(state, action) {
         }
       };
     case SAVE_SETTINGS:
-      console.log(action.payload);
       return {
         ...state,
         data: {
           ...state.data,
-          shortBreakLength: action.payload.shortbreakLength,
+          shortBreakLength: action.payload.shortBreakLength,
+          longBreakLength: action.payload.longBreakLength,
           roundLength: action.payload.roundLength,
           totalGoal: action.payload.totalGoal,
           totalRound: action.payload.totalRound
