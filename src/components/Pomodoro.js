@@ -33,7 +33,7 @@ class Pomodoro extends React.Component {
 
   determineSecondsStart() {
     if (this.props.onBreak) {
-      return this.props.breakLength;
+      return this.props.shortBreakLength;
     } else {
       return this.props.roundLength;
     }
@@ -159,7 +159,8 @@ const mapStateToProps = state => {
     totalGoal: state.data.totalGoal,
     totalRound: state.data.totalRound,
     onBreak: state.data.onBreak,
-    breakLength: state.data.breakLength,
+    shortBreakLength: state.data.shortBreakLength,
+    longBreakLength: state.data.longBreakLength,
     roundLength: state.data.roundLength
   };
 };

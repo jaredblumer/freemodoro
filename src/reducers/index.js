@@ -36,7 +36,7 @@ export default function(state, action) {
         ...state,
         data: {
           ...state.data,
-          breakLength: action.payload.breakLength,
+          shortBreakLength: action.payload.shortbreakLength,
           roundLength: action.payload.roundLength,
           totalGoal: action.payload.totalGoal,
           totalRound: action.payload.totalRound

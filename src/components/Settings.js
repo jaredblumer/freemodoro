@@ -28,7 +28,7 @@ class Settings extends React.Component {
     let object = {};
     object.totalRound = document.getElementById("sessionsPerRoundOutput").value;
     object.totalGoal = document.getElementById("dailyGoalOutput").value;
-    object.breakLength = document.getElementById(
+    object.shortBreakLength = document.getElementById(
       "shortBreakLengthOutput"
     ).value;
     object.roundLength = document.getElementById("roundLengthOutput").value;
@@ -62,7 +62,7 @@ class Settings extends React.Component {
             min="1"
             max="60"
             step="1"
-            defaultValue={this.props.breakLength}
+            defaultValue={this.props.shortBreakLength}
             onChange={id => this.renderValue("shortBreakLength")}
           />
           <output id="shortBreakLengthOutput"></output>
@@ -76,7 +76,7 @@ class Settings extends React.Component {
             min="1"
             max="60"
             step="1"
-            defaultValue="25"
+            defaultValue={this.props.longBreakLength}
             onChange={id => this.renderValue("longBreakLength")}
           />
           <output id="longBreakLengthOutput"></output>
@@ -128,7 +128,8 @@ const mapStateToProps = state => {
     totalGoal: state.data.totalGoal,
     totalRound: state.data.totalRound,
     onBreak: state.data.onBreak,
-    breakLength: state.data.breakLength,
+    shortBreakLength: state.data.shortBreakLength,
+    longBreakLength: state.data.longBreakLength,
     roundLength: state.data.roundLength
   };
 };
