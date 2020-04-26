@@ -105,7 +105,7 @@ class Pomodoro extends React.Component {
             <li>Sign In</li>
             <li>Charts</li>
             <li>
-              <Link to="/settings">Options</Link>
+              <Link to="/settings">Settings</Link>
             </li>
           </ul>
         </nav>

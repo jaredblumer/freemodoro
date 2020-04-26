@@ -68,7 +68,7 @@ class Settings extends React.Component {
           <output id="shortBreakLengthOutput"></output>
         </div>
         <div>
-          <label htmlFor="longBreakLength">Short Break Length</label>
+          <label htmlFor="longBreakLength">Long Break Length</label>
           <input
             type="range"
             id="longBreakLength"
@@ -81,7 +81,6 @@ class Settings extends React.Component {
           />
           <output id="longBreakLengthOutput"></output>
         </div>
-
         <div>
           <label htmlFor="sessionsPerRound">Sessions Per Round</label>
           <input
