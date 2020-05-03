@@ -1,8 +1,11 @@
 const express = require("express");
+const bodyParser = require("body-parser");
 const path = require("path");
 const app = express();
 const User = require("./models/User");
 const mongoose = require("mongoose");
+
+app.use(bodyParser.json());
 
 // Load environment variables
 if (process.env.NODE_ENV !== "production") {
@@ -38,6 +41,7 @@ mongoose.connect(
 app.use(express.static(path.join(__dirname, "build")));
 
 app.post("/api/register", function(req, res) {
+  console.log(req.body);
   const { email, password } = req.body;
   const user = new User({ email, password });
   user.save(function(err) {
