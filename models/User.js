@@ -13,6 +13,16 @@ const UserSchema = new mongoose.Schema({
   roundLength: { type: Number }
 });
 
+UserSchema.methods.isCorrectPassword = function(password, callback) {
+  bcrypt.compare(password, this.password, function(err, same) {
+    if (err) {
+      callback(err);
+    } else {
+      callback(err, same);
+    }
+  });
+};
+
 UserSchema.pre("save", function(next) {
   if (this.isNew || this.isModified("password")) {
     const document = this;

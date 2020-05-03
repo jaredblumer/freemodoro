@@ -4,6 +4,7 @@ import { Provider } from "react-redux";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import Pomodoro from "./components/Pomodoro";
 import Settings from "./components/Settings";
+import Login from "./components/Login";
 
 import store from "./store";
 
@@ -15,6 +16,9 @@ class App extends React.Component {
           <Switch>
             <Route path="/settings">
               <Settings />
+            </Route>
+            <Route path="/login">
+              <Login />
             </Route>
             <Route path="/">
               <Pomodoro />
