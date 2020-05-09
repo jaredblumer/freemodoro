@@ -106,8 +106,9 @@ class Pomodoro extends React.Component {
         </header>
         <nav id="nav" data-testid="nav" style={{ visibility: "hidden" }}>
           <ul>
-            <li>Sign In</li>
-            <li>Charts</li>
+            <li>
+              <Link to="/login">Sign In</Link>
+            </li>
             <li>
               <Link to="/settings">Settings</Link>
             </li>
