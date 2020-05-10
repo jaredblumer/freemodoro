@@ -173,7 +173,7 @@ export default class Login extends Component {
               A lowercase letter.
             </p>
             <p id="uppercase" className="invalid">
-              An uppercaseletter.
+              An uppercase letter.
             </p>
             <p id="number" className="invalid">
               A number.
