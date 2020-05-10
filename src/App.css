@@ -98,6 +98,23 @@ nav li {
   margin: 1em;
 }
 
+.password h2 {
+  font-size: 20px;
+}
+
+.password p {
+  font-size: 14px;
+  margin: 4px;
+}
+
+.password .invalid {
+  color: red;
+}
+
+.password .valid {
+  color: green;
+}
+
 .progress-bar {
   transition: all 1s ease;
 }
