@@ -1,7 +1,9 @@
 import React, { Component } from "react";
 import { Redirect, Link } from "react-router-dom";
+import { connect } from "react-redux";
+import { toggleLogin } from "../actions/timerActions";
 
-export default class Login extends Component {
+class Login extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -32,6 +34,7 @@ export default class Login extends Component {
     })
       .then(res => {
         if (res.status === 200) {
+          this.props.toggleLogin();
           this.setState({ redirect: true });
         } else {
           const error = new Error(res.error);
@@ -79,3 +82,5 @@ export default class Login extends Component {
     );
   }
 }
+
+export default connect(null, { toggleLogin })(Login);

@@ -1,4 +1,9 @@
-import { INCREMENT_ROUND, TOGGLE_BREAK, SAVE_SETTINGS } from "../actions/types";
+import {
+  INCREMENT_ROUND,
+  TOGGLE_BREAK,
+  SAVE_SETTINGS,
+  TOGGLE_LOGIN
+} from "../actions/types";
 
 export default function(state, action) {
   switch (action.type) {
@@ -30,6 +35,14 @@ export default function(state, action) {
         data: {
           ...state.data,
           onBreak: !state.data.onBreak
+        }
+      };
+    case TOGGLE_LOGIN:
+      return {
+        ...state,
+        data: {
+          ...state.data,
+          loggedIn: !state.data.loggedIn
         }
       };
     case SAVE_SETTINGS:

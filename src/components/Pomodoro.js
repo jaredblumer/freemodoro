@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 import ProgressButton from "./ProgressButton";
 import Timer from "./Timer";
 import { incrementRound, toggleBreak } from "../actions/timerActions";
-import { Link } from "react-router-dom";
+import Navigation from "./Navigation";
 
 class Pomodoro extends React.Component {
   constructor(props) {
@@ -104,16 +104,7 @@ class Pomodoro extends React.Component {
             ></i>
           </div>
         </header>
-        <nav id="nav" data-testid="nav" style={{ visibility: "hidden" }}>
-          <ul>
-            <li>
-              <Link to="/login">Sign In</Link>
-            </li>
-            <li>
-              <Link to="/settings">Settings</Link>
-            </li>
-          </ul>
-        </nav>
+        <Navigation />
         <div className="timer">
           <button data-testid="timer-display" onClick={this.resetTimer}>
             <Timer secondsRemaining={this.state.secondsRemaining} />

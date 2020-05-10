@@ -1,4 +1,9 @@
-import { INCREMENT_ROUND, TOGGLE_BREAK, SAVE_SETTINGS } from "./types";
+import {
+  INCREMENT_ROUND,
+  TOGGLE_BREAK,
+  SAVE_SETTINGS,
+  TOGGLE_LOGIN
+} from "./types";
 
 export const incrementRound = () => {
   return {
@@ -16,5 +21,11 @@ export const saveSettings = object => {
   return {
     type: SAVE_SETTINGS,
     payload: object
+  };
+};
+
+export const toggleLogin = () => {
+  return {
+    type: TOGGLE_LOGIN
   };
 };

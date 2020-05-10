@@ -16,7 +16,8 @@ const initialState = {
     breakType: "short",
     shortBreakLength: 300,
     longBreakLength: 1500,
-    roundLength: 1500
+    roundLength: 1500,
+    loggedIn: false
   }
 };
 
