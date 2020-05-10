@@ -104,28 +104,30 @@ export default class Login extends Component {
       password.match(numbers) &&
       password.match(symbols)
     ) {
-      console.log("Success");
+      let body = {
+        email: this.state.email,
+        password: this.state.password
+      };
+      fetch("/api/register", {
+        method: "POST",
+        body: JSON.stringify(body),
+        headers: {
+          "Content-Type": "application/json"
+        }
+      })
+        .then(res => {
+          if (res.status === 200) {
+            this.setState({ redirect: true });
+          } else {
+            const error = new Error(res.error);
+            throw error;
+          }
+        })
+        .catch(err => {
+          console.error(err);
+          alert("Error registering. Please try again.");
+        });
     }
-
-    // fetch("/api/authenticate", {
-    //   method: "POST",
-    //   body: JSON.stringify(this.state),
-    //   headers: {
-    //     "Content-Type": "application/json"
-    //   }
-    // })
-    //   .then(res => {
-    //     if (res.status === 200) {
-    //       this.setState({ redirect: true });
-    //     } else {
-    //       const error = new Error(res.error);
-    //       throw error;
-    //     }
-    //   })
-    //   .catch(err => {
-    //     console.error(err);
-    //     alert("Error logging in. Please try again.");
-    //   });
   };
 
   render() {
