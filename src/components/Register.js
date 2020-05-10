@@ -10,17 +10,21 @@ export default class Login extends Component {
       passwordVerification: "",
       redirect: false
     };
+
+    this.handleChange = this.handleChange.bind(this);
+    this.handlePasswordChange = this.handlePasswordChange.bind(this);
+    this.onSubmit = this.onSubmit.bind(this);
   }
 
-  handleChange = event => {
+  handleChange(event) {
     const { value, name } = event.target;
 
     this.setState({
       [name]: value
     });
-  };
+  }
 
-  handlePasswordChange = event => {
+  handlePasswordChange(event) {
     const { value } = event.target;
     let lowercase = document.getElementById("lowercase");
     let uppercase = document.getElementById("uppercase");
@@ -80,9 +84,9 @@ export default class Login extends Component {
     this.setState({
       password: value
     });
-  };
+  }
 
-  onSubmit = event => {
+  onSubmit(event) {
     event.preventDefault();
     let password = this.state.password;
     let passwordVerification = this.state.passwordVerification;
@@ -128,7 +132,7 @@ export default class Login extends Component {
           alert("Error registering. Please try again.");
         });
     }
-  };
+  }
 
   render() {
     const { redirect } = this.state;

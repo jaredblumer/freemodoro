@@ -9,16 +9,19 @@ export default class Login extends Component {
       password: "",
       redirect: false
     };
+
+    this.handleInputChange = this.handleInputChange.bind(this);
+    this.onSubmit = this.onSubmit.bind(this);
   }
 
-  handleInputChange = event => {
+  handleInputChange(event) {
     const { value, name } = event.target;
     this.setState({
       [name]: value
     });
-  };
+  }
 
-  onSubmit = event => {
+  onSubmit(event) {
     event.preventDefault();
     fetch("/api/authenticate", {
       method: "POST",
@@ -39,7 +42,7 @@ export default class Login extends Component {
         console.error(err);
         alert("Error logging in. Please try again.");
       });
-  };
+  }
 
   render() {
     const { redirect } = this.state;
