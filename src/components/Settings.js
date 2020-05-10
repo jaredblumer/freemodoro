@@ -28,13 +28,12 @@ class Settings extends React.Component {
     let object = {};
     object.totalRound = document.getElementById("sessionsPerRoundOutput").value;
     object.totalGoal = document.getElementById("dailyGoalOutput").value;
-    object.shortBreakLength = document.getElementById(
-      "shortBreakLengthOutput"
-    ).value;
-    object.longBreakLength = document.getElementById(
-      "longBreakLengthOutput"
-    ).value;
-    object.roundLength = document.getElementById("roundLengthOutput").value;
+    object.shortBreakLength =
+      document.getElementById("shortBreakLengthOutput").value * 60;
+    object.longBreakLength =
+      document.getElementById("longBreakLengthOutput").value * 60;
+    object.roundLength =
+      document.getElementById("roundLengthOutput").value * 60;
     this.props.saveSettings(object);
   }
 
@@ -51,7 +50,7 @@ class Settings extends React.Component {
             min="1"
             max="60"
             step="1"
-            defaultValue={this.props.roundLength}
+            defaultValue={this.props.roundLength / 60}
             onChange={id => this.renderValue("roundLength")}
           />
           <output id="roundLengthOutput"></output>
@@ -65,7 +64,7 @@ class Settings extends React.Component {
             min="1"
             max="60"
             step="1"
-            defaultValue={this.props.shortBreakLength}
+            defaultValue={this.props.shortBreakLength / 60}
             onChange={id => this.renderValue("shortBreakLength")}
           />
           <output id="shortBreakLengthOutput"></output>
@@ -79,7 +78,7 @@ class Settings extends React.Component {
             min="1"
             max="60"
             step="1"
-            defaultValue={this.props.longBreakLength}
+            defaultValue={this.props.longBreakLength / 60}
             onChange={id => this.renderValue("longBreakLength")}
           />
           <output id="longBreakLengthOutput"></output>
