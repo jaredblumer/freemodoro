@@ -2,7 +2,9 @@ import {
   INCREMENT_ROUND,
   TOGGLE_BREAK,
   SAVE_SETTINGS,
-  TOGGLE_LOGIN
+  LOGIN,
+  LOGOUT,
+  UPDATE_USERNAME
 } from "../actions/types";
 
 export default function(state, action) {
@@ -37,7 +39,15 @@ export default function(state, action) {
           onBreak: !state.data.onBreak
         }
       };
-    case TOGGLE_LOGIN:
+    case LOGIN:
+      return {
+        ...state,
+        user: {
+          username: action.payload,
+          loggedIn: !state.user.loggedIn
+        }
+      };
+    case LOGOUT:
       return {
         ...state,
         user: {
@@ -57,6 +67,9 @@ export default function(state, action) {
           totalRound: action.payload.totalRound
         }
       };
+    case UPDATE_USERNAME:
+      console.log(action.payload);
+      break;
     default:
       return state;
   }

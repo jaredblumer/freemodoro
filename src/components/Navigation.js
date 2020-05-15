@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
-import { toggleLogin } from "../actions/timerActions";
+import { logout } from "../actions/timerActions";
 
 class Navigation extends Component {
   render() {
@@ -10,7 +10,7 @@ class Navigation extends Component {
         <nav id="nav" data-testid="nav" style={{ visibility: "hidden" }}>
           <ul>
             <li>
-              <button onClick={this.props.toggleLogin}>Log Out</button>
+              <button onClick={this.props.logout}>Log Out</button>
             </li>
             <li>
               <Link to="/settings">Settings</Link>
@@ -41,4 +41,4 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(mapStateToProps, { toggleLogin })(Navigation);
+export default connect(mapStateToProps, { logout })(Navigation);
