@@ -37,7 +37,7 @@ class Navigation extends Component {
 
 const mapStateToProps = state => {
   return {
-    loggedIn: state.data.loggedIn
+    loggedIn: state.user.loggedIn
   };
 };
 

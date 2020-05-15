@@ -40,9 +40,9 @@ export default function(state, action) {
     case TOGGLE_LOGIN:
       return {
         ...state,
-        data: {
-          ...state.data,
-          loggedIn: !state.data.loggedIn
+        user: {
+          ...state.user,
+          loggedIn: !state.user.loggedIn
         }
       };
     case SAVE_SETTINGS:
