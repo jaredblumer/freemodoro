@@ -1,12 +1,16 @@
 import React from "react";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
-import { Link } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 import { saveSettings } from "../actions/timerActions";
 
 class Settings extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+      redirect: false
+    };
+
     this.renderValue = this.renderValue.bind(this);
     this.save = this.save.bind(this);
   }
@@ -35,9 +39,15 @@ class Settings extends React.Component {
     object.roundLength =
       document.getElementById("roundLengthOutput").value * 60;
     this.props.saveSettings(object);
+    this.setState({ redirect: true });
   }
 
   render() {
+    const { redirect } = this.state;
+    if (redirect) {
+      return <Redirect to="/" />;
+    }
+
     return (
       <div>
         <h1>Settings</h1>
