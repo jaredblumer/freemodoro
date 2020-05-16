@@ -46,8 +46,7 @@ mongoose.connect(
 app.use(express.static(path.join(__dirname, "build")));
 
 app.post("/api/register", function(req, res) {
-  const { email, password } = req.body;
-  const user = new User({ email, password });
+  const user = new User(req.body);
   user.save(function(err) {
     if (err) {
       res.status(500).send("Error registering new user.");

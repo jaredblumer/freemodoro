@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import { Redirect, Link } from "react-router-dom";
+import { connect } from "react-redux";
 
-export default class Login extends Component {
+class Register extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -110,7 +111,12 @@ export default class Login extends Component {
     ) {
       let body = {
         email: this.state.email,
-        password: this.state.password
+        password: this.state.password,
+        totalGoal: this.props.totalGoal,
+        totalRound: this.props.totalRound,
+        shortBreakLength: this.props.shortBreakLength / 60,
+        longBreakLength: this.props.longBreakLength / 60,
+        roundLength: this.props.roundLength / 60
       };
       fetch("/api/register", {
         method: "POST",
@@ -198,3 +204,15 @@ export default class Login extends Component {
     );
   }
 }
+
+const mapStateToProps = state => {
+  return {
+    totalGoal: state.data.totalGoal,
+    totalRound: state.data.totalRound,
+    shortBreakLength: state.data.shortBreakLength,
+    longBreakLength: state.data.longBreakLength,
+    roundLength: state.data.roundLength
+  };
+};
+
+export default connect(mapStateToProps)(Register);
