@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Redirect, Link } from "react-router-dom";
 import { connect } from "react-redux";
-import { login } from "../actions/timerActions";
+import { login, saveSettings } from "../actions/timerActions";
 
 class Login extends Component {
   constructor(props) {
@@ -34,8 +34,27 @@ class Login extends Component {
     })
       .then(res => {
         if (res.status === 200) {
-          this.props.login();
-          this.setState({ redirect: true });
+          let self = this;
+          let settings = {};
+          // Retrieve and save settings
+          res
+            .json()
+            .then(function(data) {
+              settings.longBreakLength = data.longBreakLength * 60;
+              settings.roundLength = data.roundLength * 60;
+              settings.shortBreakLength = data.shortBreakLength * 60;
+              settings.totalGoal = data.totalGoal;
+              settings.totalRound = data.totalRound;
+            })
+            .then(function() {
+              self.props.saveSettings(settings);
+            })
+            .then(function() {
+              self.props.login();
+            })
+            .then(function() {
+              self.setState({ redirect: true });
+            });
         } else {
           const error = new Error(res.error);
           throw error;
@@ -83,4 +102,4 @@ class Login extends Component {
   }
 }
 
-export default connect(null, { login })(Login);
+export default connect(null, { login, saveSettings })(Login);

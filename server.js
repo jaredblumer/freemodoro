@@ -84,7 +84,17 @@ app.post("/api/authenticate", function(req, res) {
           const token = jwt.sign(payload, TOKEN_SECRET, {
             expiresIn: "1h"
           });
-          res.cookie("token", token, { httpOnly: true }).sendStatus(200);
+          res.cookie("token", token, { httpOnly: true });
+
+          // Send settings data
+          let settings = {};
+          settings.totalGoal = user.totalGoal;
+          settings.totalRound = user.totalRound;
+          settings.shortBreakLength = user.shortBreakLength;
+          settings.longBreakLength = user.longBreakLength;
+          settings.roundLength = user.roundLength;
+          res.setHeader("Content-Type", "application/json");
+          res.status(200).send(settings);
         }
       });
     }
