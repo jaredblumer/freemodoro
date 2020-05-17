@@ -39,6 +39,23 @@ class Settings extends React.Component {
     object.roundLength =
       document.getElementById("roundLengthOutput").value * 60;
     this.props.saveSettings(object);
+
+    if (this.props.loggedIn) {
+      let bodyObj = object;
+      bodyObj.shortBreakLength = bodyObj.shortBreakLength / 60;
+      bodyObj.longBreakLength = bodyObj.longBreakLength / 60;
+      bodyObj.roundLength = bodyObj.roundLength / 60;
+      bodyObj.email = this.props.username;
+
+      fetch("/api/saveSettings", {
+        method: "POST",
+        body: JSON.stringify(bodyObj),
+        headers: {
+          "Content-Type": "application/json"
+        }
+      });
+    }
+
     this.setState({ redirect: true });
   }
 
@@ -143,7 +160,9 @@ const mapStateToProps = state => {
     breakType: state.data.breakType,
     shortBreakLength: state.data.shortBreakLength,
     longBreakLength: state.data.longBreakLength,
-    roundLength: state.data.roundLength
+    roundLength: state.data.roundLength,
+    loggedIn: state.user.loggedIn,
+    username: state.user.username
   };
 };
 

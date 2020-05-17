@@ -50,7 +50,7 @@ class Login extends Component {
               self.props.saveSettings(settings);
             })
             .then(function() {
-              self.props.login();
+              self.props.login(self.state.email);
             })
             .then(function() {
               self.setState({ redirect: true });

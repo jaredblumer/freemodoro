@@ -105,6 +105,24 @@ app.get("/api/checkToken", withAuth, function(req, res) {
   res.sendStatus(200);
 });
 
+app.post("/api/saveSettings", function(req, res) {
+  User.findOne({ email: req.body.email }, function(err, doc) {
+    if (err) {
+      console.error(err);
+      res.status(500).json({
+        error: "Internal error."
+      });
+    } else {
+      doc.totalGoal = req.body.totalGoal;
+      doc.totalRound = req.body.totalRound;
+      doc.shortBreakLength = req.body.shortBreakLength;
+      doc.longBreakLength = req.body.longBreakLength;
+      doc.roundLength = req.body.roundLength;
+      doc.save();
+    }
+  });
+});
+
 app.listen(process.env.PORT || 8080, () =>
   console.log("Freemodoro server listening.")
 );
