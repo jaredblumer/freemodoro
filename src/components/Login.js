@@ -105,7 +105,7 @@ class Login extends Component {
                 <Button>Home</Button>
               </Link>
               <Link to="/register" className="link">
-                <Button id="register-button">Register</Button>
+                <Button id="button-margin">Register</Button>
               </Link>
               <Button variant="contained" type="submit">
                 Login
