@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import { Redirect, Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { login, saveSettings } from "../actions/timerActions";
+import TextField from "@material-ui/core/TextField";
+import Button from "@material-ui/core/Button";
 
 class Login extends Component {
   constructor(props) {
@@ -75,28 +77,29 @@ class Login extends Component {
     return (
       <div>
         <form onSubmit={this.onSubmit}>
-          <h1>Login</h1>
-          <input
-            type="email"
-            name="email"
-            placeholder="Email"
-            value={this.state.email}
-            onChange={this.handleInputChange}
-            required
-          />
-          <input
-            type="password"
-            name="password"
-            placeholder="Password"
-            value={this.state.password}
-            onChange={this.handleInputChange}
-            required
-          />
-          <input type="submit" value="Submit" />
+          <div>
+            <TextField
+              type="email"
+              label="Email"
+              name="email"
+              onChange={this.handleInputChange}
+            />
+          </div>
+          <div>
+            <TextField
+              type="password"
+              label="Password"
+              name="password"
+              onChange={this.handleInputChange}
+            />
+          </div>
+          <Link to="/register" className="link">
+            <Button>Register</Button>
+          </Link>
+          <Button variant="contained" type="submit">
+            Login
+          </Button>
         </form>
-        <p>
-          <Link to="/register">Register</Link>
-        </p>
       </div>
     );
   }
