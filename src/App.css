@@ -1,6 +1,5 @@
 html,
-body,
-button {
+body {
   font-family: "Roboto", sans-serif;
   font-size: 16px;
   line-height: 1em;
@@ -15,10 +14,11 @@ button {
   max-width: 500px;
 }
 
-button {
+.App button {
   border: 0;
   background-color: white;
   cursor: pointer;
+  margin-left: 10px;
   outline: none;
 }
 
@@ -79,6 +79,11 @@ header div {
   justify-content: center;
 }
 
+.login-container h1 {
+  font-size: 2em;
+  margin: 0.67em 0;
+}
+
 .menu {
   text-align: right;
 }
@@ -134,6 +139,10 @@ nav li {
   transition: all 1s ease;
 }
 
+#register-button {
+  margin-right: 3px;
+}
+
 .start {
   align-items: start;
   display: flex;
@@ -148,6 +157,14 @@ nav li {
 
 #svg circle {
   transition: all 1s linear;
+}
+
+.TextField {
+  width: 300px;
+}
+
+.textfield-container {
+  margin-bottom: 0.67em;
 }
 
 .timer {
