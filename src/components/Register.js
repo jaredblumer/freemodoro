@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import { Redirect, Link } from "react-router-dom";
 import { connect } from "react-redux";
+import TextField from "@material-ui/core/TextField";
+import Button from "@material-ui/core/Button";
 
 class Register extends Component {
   constructor(props) {
@@ -147,38 +149,12 @@ class Register extends Component {
     }
 
     return (
-      <div>
-        <form onSubmit={this.onSubmit}>
-          <h1>Register</h1>
-          <input
-            type="email"
-            name="email"
-            placeholder="Email"
-            value={this.state.email}
-            onChange={this.handleChange}
-            required
-          />
-          <br />
-          <input
-            type="password"
-            name="password"
-            placeholder="Password"
-            value={this.state.password}
-            onChange={this.handlePasswordChange}
-            required
-          />
-          <br />
-          <input
-            type="password"
-            name="passwordVerification"
-            placeholder="Verify Password"
-            value={this.state.passwordVerification}
-            onChange={this.handleChange}
-            required
-          />
-          <br />
-          <div className="password">
-            <h2>Password must contain the following:</h2>
+      <div className="register-container">
+        <div>
+          <h1>Freemodoro</h1>
+
+          <div className="password-requirements">
+            <span>Password must contain the following:</span>
             <p id="lowercase" className="invalid">
               A lowercase letter.
             </p>
@@ -195,11 +171,51 @@ class Register extends Component {
               At least 8 characters.
             </p>
           </div>
-          <input type="submit" value="Submit" />
-        </form>
-        <p>
-          <Link to="/login">Sign In</Link>
-        </p>
+
+          <form onSubmit={this.onSubmit}>
+            <div className="textfield-container">
+              <TextField
+                className="TextField"
+                type="email"
+                label="Email"
+                name="email"
+                variant="filled"
+                onChange={this.handleChange}
+              />
+            </div>
+            <div className="textfield-container">
+              <TextField
+                className="TextField"
+                type="password"
+                label="Password"
+                name="password"
+                variant="filled"
+                onChange={this.handlePasswordChange}
+              />
+            </div>
+            <div className="textfield-container">
+              <TextField
+                className="TextField"
+                type="password"
+                label="Verify Password"
+                name="passwordVerification"
+                variant="filled"
+                onChange={this.handleChange}
+              />
+            </div>
+            <div className="login-buttons">
+              <Link to="/" className="link">
+                <Button>Home</Button>
+              </Link>
+              <Link to="/login" className="link">
+                <Button id="button-margin">Login</Button>
+              </Link>
+              <Button variant="contained" type="submit">
+                Register
+              </Button>
+            </div>
+          </form>
+        </div>
       </div>
     );
   }
