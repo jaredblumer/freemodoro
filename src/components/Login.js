@@ -75,31 +75,37 @@ class Login extends Component {
     }
 
     return (
-      <div>
-        <form onSubmit={this.onSubmit}>
-          <div>
-            <TextField
-              type="email"
-              label="Email"
-              name="email"
-              onChange={this.handleInputChange}
-            />
-          </div>
-          <div>
-            <TextField
-              type="password"
-              label="Password"
-              name="password"
-              onChange={this.handleInputChange}
-            />
-          </div>
-          <Link to="/register" className="link">
-            <Button>Register</Button>
-          </Link>
-          <Button variant="contained" type="submit">
-            Login
-          </Button>
-        </form>
+      <div className="login-container">
+        <div>
+          <span>Freemodoro</span>
+
+          <form onSubmit={this.onSubmit}>
+            <div>
+              <TextField
+                type="email"
+                label="Email"
+                name="email"
+                onChange={this.handleInputChange}
+              />
+            </div>
+            <div>
+              <TextField
+                type="password"
+                label="Password"
+                name="password"
+                onChange={this.handleInputChange}
+              />
+            </div>
+            <div className="login-buttons">
+              <Link to="/register" className="link">
+                <Button>Register</Button>
+              </Link>
+              <Button variant="contained" type="submit">
+                Login
+              </Button>
+            </div>
+          </form>
+        </div>
       </div>
     );
   }
