@@ -74,6 +74,7 @@ header div {
 }
 
 .login-container,
+.settings-container,
 .register-container {
   align-items: center;
   display: flex;
@@ -143,6 +144,11 @@ nav li {
 
 #button-margin {
   margin-right: 3px;
+}
+
+.settings-container input {
+  width: 300px;
+  margin-bottom: 10px;
 }
 
 .start {

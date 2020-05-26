@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import { Link, Redirect } from "react-router-dom";
 import { saveSettings } from "../actions/timerActions";
+import Button from "@material-ui/core/Button";
 
 class Settings extends React.Component {
   constructor(props) {
@@ -66,85 +67,93 @@ class Settings extends React.Component {
     }
 
     return (
-      <div>
-        <h1>Settings</h1>
+      <div className="settings-container">
         <div>
-          <label htmlFor="roundLength">Round Length</label>
-          <input
-            type="range"
-            id="roundLength"
-            name="roundLength"
-            min="1"
-            max="60"
-            step="1"
-            defaultValue={this.props.roundLength / 60}
-            onChange={id => this.renderValue("roundLength")}
-          />
-          <output id="roundLengthOutput"></output>
+          <h1>Settings</h1>
+          <div>
+            <label htmlFor="roundLength">Round Length</label>
+            <br />
+            <input
+              type="range"
+              id="roundLength"
+              name="roundLength"
+              min="1"
+              max="60"
+              step="1"
+              defaultValue={this.props.roundLength / 60}
+              onChange={id => this.renderValue("roundLength")}
+            />
+            <output id="roundLengthOutput"></output>
+          </div>
+          <div>
+            <label htmlFor="shortBreakLength">Short Break Length</label>
+            <br />
+            <input
+              type="range"
+              id="shortBreakLength"
+              name="shortBreakLength"
+              min="1"
+              max="60"
+              step="1"
+              defaultValue={this.props.shortBreakLength / 60}
+              onChange={id => this.renderValue("shortBreakLength")}
+            />
+            <output id="shortBreakLengthOutput"></output>
+          </div>
+          <div>
+            <label htmlFor="longBreakLength">Long Break Length</label>
+            <br />
+            <input
+              type="range"
+              id="longBreakLength"
+              name="longBreakLength"
+              min="1"
+              max="60"
+              step="1"
+              defaultValue={this.props.longBreakLength / 60}
+              onChange={id => this.renderValue("longBreakLength")}
+            />
+            <output id="longBreakLengthOutput"></output>
+          </div>
+          <div>
+            <label htmlFor="sessionsPerRound">Sessions Per Round</label>
+            <br />
+            <input
+              type="range"
+              id="sessionsPerRound"
+              name="sessionsPerRound"
+              min="1"
+              max="20"
+              step="1"
+              defaultValue={this.props.totalRound}
+              onChange={id => this.renderValue("sessionsPerRound")}
+            />
+            <output id="sessionsPerRoundOutput"></output>
+          </div>
+          <div>
+            <label htmlFor="dailyGoal">Daily Goal</label>
+            <br />
+            <input
+              type="range"
+              id="dailyGoal"
+              name="dailyGoal"
+              min="1"
+              max="60"
+              step="1"
+              defaultValue={this.props.totalGoal}
+              onChange={id => this.renderValue("dailyGoal")}
+            />
+            <output id="dailyGoalOutput"></output>
+          </div>
+          <div className="login-buttons">
+            <Link to="/" className="link">
+              <Button id="button-margin">Home</Button>
+            </Link>
+            <Button variant="contained" type="button" onClick={this.save}>
+              Save
+            </Button>
+          </div>
         </div>
-        <div>
-          <label htmlFor="shortBreakLength">Short Break Length</label>
-          <input
-            type="range"
-            id="shortBreakLength"
-            name="shortBreakLength"
-            min="1"
-            max="60"
-            step="1"
-            defaultValue={this.props.shortBreakLength / 60}
-            onChange={id => this.renderValue("shortBreakLength")}
-          />
-          <output id="shortBreakLengthOutput"></output>
-        </div>
-        <div>
-          <label htmlFor="longBreakLength">Long Break Length</label>
-          <input
-            type="range"
-            id="longBreakLength"
-            name="longBreakLength"
-            min="1"
-            max="60"
-            step="1"
-            defaultValue={this.props.longBreakLength / 60}
-            onChange={id => this.renderValue("longBreakLength")}
-          />
-          <output id="longBreakLengthOutput"></output>
-        </div>
-        <div>
-          <label htmlFor="sessionsPerRound">Sessions Per Round</label>
-          <input
-            type="range"
-            id="sessionsPerRound"
-            name="sessionsPerRound"
-            min="1"
-            max="20"
-            step="1"
-            defaultValue={this.props.totalRound}
-            onChange={id => this.renderValue("sessionsPerRound")}
-          />
-          <output id="sessionsPerRoundOutput"></output>
-        </div>
-        <div>
-          <label htmlFor="dailyGoal">Daily Goal</label>
-          <input
-            type="range"
-            id="dailyGoal"
-            name="dailyGoal"
-            min="1"
-            max="60"
-            step="1"
-            defaultValue={this.props.totalGoal}
-            onChange={id => this.renderValue("dailyGoal")}
-          />
-          <output id="dailyGoalOutput"></output>
-        </div>
-        <div>
-          <label htmlFor="autoResetTime">Auto-Reset Time</label>
-        </div>
-        <div>
-          <button onClick={this.save}>Save</button>
-        </div>
-        <Link to="/">Home</Link>
       </div>
     );
   }
