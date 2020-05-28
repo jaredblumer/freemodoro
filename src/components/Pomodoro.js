@@ -92,8 +92,19 @@ class Pomodoro extends React.Component {
   }
 
   render() {
+    // Calculate viewport height unit and set css variable
+    let vh = window.innerHeight * 0.01;
+    document.documentElement.style.setProperty("--vh", `${vh}px`);
+
+    // Add event listener on resize
+    window.addEventListener("resize", () => {
+      // We execute the same script as before
+      let vh = window.innerHeight * 0.01;
+      document.documentElement.style.setProperty("--vh", `${vh}px`);
+    });
+
     return (
-      <div className="App">
+      <div className="Pomodoro">
         <header>
           <div className="name">Freemodoro</div>
           <div className="menu">

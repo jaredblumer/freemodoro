@@ -1,26 +1,18 @@
 html,
 body {
+  border: none;
   background-color: #fff;
   font-family: "Roboto", sans-serif;
   font-size: 16px;
+  height: 100vh;
   line-height: 1em;
   margin: 0;
+  overflow-x: hidden;
   padding: 0;
-  border: none;
 }
 
-.App {
-  height: calc(100vh);
-  margin: 0;
-  max-width: 500px;
-}
-
-.App button {
-  border: 0;
-  background-color: white;
-  cursor: pointer;
-  margin-left: 10px;
-  outline: none;
+#button-margin {
+  margin-right: 3px;
 }
 
 .fa-bars {
@@ -37,8 +29,8 @@ body {
 
 .data {
   align-items: center;
+  height: 22.5%;
   display: flex;
-  height: calc(22.5vh);
   justify-content: center;
 }
 
@@ -50,19 +42,6 @@ body {
 
 .goal {
   text-align: center;
-}
-
-header {
-  align-items: center;
-  display: flex;
-  height: calc(12.5vh);
-  padding: 0 1em;
-  z-index: 999;
-}
-
-header div {
-  width: 50%;
-  z-index: 2;
 }
 
 .link {
@@ -78,7 +57,6 @@ header div {
 .register-container {
   align-items: center;
   display: flex;
-  height: 100vh;
   justify-content: center;
 }
 
@@ -102,7 +80,6 @@ nav {
   overflow: hidden;
   position: fixed;
   transition: 1s;
-  width: 100%;
   z-index: 0;
 }
 
@@ -138,12 +115,42 @@ nav li {
   color: green;
 }
 
+.Pomodoro {
+  height: 100vh;
+  /* Use variable to calculate viewport on mobile */
+  height: calc(var(--vh, 1vh) * 100);
+  margin: 0;
+  max-width: 500px;
+}
+
+.Pomodoro button {
+  border: 0;
+  background-color: white;
+  cursor: pointer;
+  margin-left: 10px;
+  outline: none;
+}
+
+.Pomodoro header {
+  align-items: center;
+  display: flex;
+  height: 12.5%;
+  flex-flow: row;
+  padding: 0 1em;
+  z-index: 999;
+}
+
+.Pomodoro header div {
+  width: 50%;
+  z-index: 2;
+}
+
 .progress-bar {
   transition: all 1s ease;
 }
 
-#button-margin {
-  margin-right: 3px;
+#root {
+  height: 100vh;
 }
 
 .settings-container input {
@@ -154,7 +161,7 @@ nav li {
 .start {
   align-items: start;
   display: flex;
-  height: calc(25vh);
+  height: 25%;
   justify-content: center;
   text-align: center;
 }
@@ -178,7 +185,7 @@ nav li {
 .timer {
   align-items: center;
   display: flex;
-  height: calc(40vh);
+  height: 40%;
   justify-content: center;
 }
 
@@ -187,7 +194,7 @@ nav li {
 }
 
 @media screen and (min-width: 500px) {
-  .App {
+  .Pomodoro {
     margin: 0 auto;
   }
 }
