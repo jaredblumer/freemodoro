@@ -33,9 +33,9 @@ class ProgressButton extends React.Component {
             cx={radius}
             cy={radius}
           />
-          <circle fill="#f05b56" cx={radius} cy={radius} r={radius - 14} />
-          <polygon points="33,35 33,41 55,41 55,35" fill="white" />
-          <polygon points="33,47 33,53 55,53 55,47" fill="white" />
+          <circle fill="white" cx={radius} cy={radius} r={radius - 14} />
+          <polygon points="33,35 33,41 55,41 55,35" fill="#f05b56" />
+          <polygon points="33,47 33,53 55,53 55,47" fill="#f05b56" />
         </svg>
       );
     } else {
@@ -61,8 +61,8 @@ class ProgressButton extends React.Component {
             cx={radius}
             cy={radius}
           />
-          <circle fill="#f05b56" cx={radius} cy={radius} r={radius - 14} />
-          <polygon points="33,37 55,37 44,57" fill="white" />
+          <circle fill="white" cx={radius} cy={radius} r={radius - 14} />
+          <polygon points="33,37 55,37 44,57" fill="#f05b56" />
         </svg>
       );
     }
