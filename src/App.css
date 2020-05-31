@@ -1,10 +1,10 @@
 html,
 body {
   border: none;
-  background-color: #fff;
+  background-color: #f05b56;
+  color: white;
   font-family: "Roboto", sans-serif;
   font-size: 16px;
-  height: 100vh;
   line-height: 1em;
   margin: 0;
   overflow-x: hidden;
@@ -29,7 +29,6 @@ body {
 
 .data {
   align-items: center;
-  height: 22.5%;
   display: flex;
   justify-content: center;
 }
@@ -38,6 +37,11 @@ body {
   margin: 0 auto;
   text-align: center;
   width: 50%;
+}
+
+.display {
+  background-color: #f16c68;
+  border-radius: 6px;
 }
 
 .goal {
@@ -116,24 +120,26 @@ nav li {
 }
 
 .Pomodoro {
-  height: 100vh;
   margin: 0;
   max-width: 500px;
 }
 
 .Pomodoro button {
   border: 0;
-  background-color: white;
+  border-radius: 4px;
+  background-color: #f16c68;
+  color: white;
   cursor: pointer;
   margin-left: 10px;
   outline: none;
+  padding: 8px 12px;
 }
 
 .Pomodoro header {
   align-items: center;
   display: flex;
-  height: 12.5%;
   flex-flow: row;
+  height: 60px;
   padding: 0 1em;
   z-index: 999;
 }
@@ -143,23 +149,23 @@ nav li {
   z-index: 2;
 }
 
+.Pomodoro h1 {
+  font-size: 20px;
+}
+
 .progress-bar {
   transition: all 1s ease;
 }
 
-#root {
-  height: 100vh;
-}
-
 .settings-container input {
-  width: 300px;
-  margin-bottom: 10px;
+  min-width: 200px;
+  max-width: 300px;
+  margin-bottom: 20px;
 }
 
 .start {
   align-items: start;
   display: flex;
-  height: 25%;
   justify-content: center;
   text-align: center;
 }
@@ -182,8 +188,8 @@ nav li {
 
 .timer {
   align-items: center;
+  font-size: 20px;
   display: flex;
-  height: 40%;
   justify-content: center;
 }
 
@@ -193,9 +199,6 @@ nav li {
 
 @media screen and (min-width: 500px) {
   .Pomodoro {
-    height: 100vh;
-    /* Use variable to calculate viewport on mobile */
-    height: calc(var(--vh, 1vh) * 100);
     margin: 0 auto;
   }
 }

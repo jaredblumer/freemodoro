@@ -92,70 +92,61 @@ class Pomodoro extends React.Component {
   }
 
   render() {
-    // Calculate viewport height unit and set css variable
-    let vh = window.innerHeight * 0.01;
-    document.documentElement.style.setProperty("--vh", `${vh}px`);
-
-    // Add event listener on resize
-    window.addEventListener("resize", () => {
-      let vh = window.innerHeight * 0.01;
-      document.documentElement.style.setProperty("--vh", `${vh}px`);
-    });
-
-    // Add event listener on orientation change
-    window.addEventListener("orientationchange", () => {
-      let vh = window.innerHeight * 0.01;
-      document.documentElement.style.setProperty("--vh", `${vh}px`);
-    });
-
     return (
       <div className="Pomodoro">
         <header>
-          <div className="name">Freemodoro</div>
+          <div className="name">
+            <h1>Freemodoro</h1>
+          </div>
           <div className="menu">
-            <i
-              className="fas fa-bars menu-button"
-              data-testid="menu-button"
-              onClick={this.handleNav}
-            ></i>
+            <button>Settings</button>
+            <button>Login</button>
           </div>
         </header>
-        <Navigation />
-        <div className="timer">
-          <button data-testid="timer-display" onClick={this.resetTimer}>
-            <Timer secondsRemaining={this.state.secondsRemaining} />
-          </button>
-        </div>
-        <div className="start">
-          <button
-            id="svg-button"
-            data-testid="timer-button"
-            onClick={this.timer}
-          >
-            <ProgressButton
-              secondsRemaining={this.state.secondsRemaining}
-              secondsStart={this.determineSecondsStart()}
-              timerOn={this.state.timerOn}
-            />
-          </button>
-        </div>
-        <div className="data">
-          <div className="round">
-            <div className="round-title">Round</div>
-            <div className="round-data">
-              <span className="footer-data-current" data-testid="currentRound">
-                {this.props.currentRound}
-              </span>
-              <span className="footer-data-goal">/{this.props.totalRound}</span>
-            </div>
+        <div className="display">
+          <div className="timer">
+            <button data-testid="timer-display" onClick={this.resetTimer}>
+              <Timer secondsRemaining={this.state.secondsRemaining} />
+            </button>
           </div>
-          <div className="goal">
-            <div className="goal-title">Goal</div>
-            <div className="goal-data">
-              <span className="footer-data-current">
-                {this.props.currentGoal}
-              </span>
-              <span className="footer-data-goal">/{this.props.totalGoal}</span>
+          <div className="data">
+            <div className="round">
+              <div className="round-title">Round</div>
+              <div className="round-data">
+                <span
+                  className="footer-data-current"
+                  data-testid="currentRound"
+                >
+                  {this.props.currentRound}
+                </span>
+                <span className="footer-data-goal">
+                  /{this.props.totalRound}
+                </span>
+              </div>
+            </div>
+            <div className="start">
+              <button
+                id="svg-button"
+                data-testid="timer-button"
+                onClick={this.timer}
+              >
+                <ProgressButton
+                  secondsRemaining={this.state.secondsRemaining}
+                  secondsStart={this.determineSecondsStart()}
+                  timerOn={this.state.timerOn}
+                />
+              </button>
+            </div>
+            <div className="goal">
+              <div className="goal-title">Goal</div>
+              <div className="goal-data">
+                <span className="footer-data-current">
+                  {this.props.currentGoal}
+                </span>
+                <span className="footer-data-goal">
+                  /{this.props.totalGoal}
+                </span>
+              </div>
             </div>
           </div>
         </div>
