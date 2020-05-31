@@ -104,6 +104,11 @@ class Pomodoro extends React.Component {
           </div>
         </header>
         <div className="display">
+          <div className="round-type">
+            <span>Pomodoro</span>
+            <span>Short Break</span>
+            <span>Long Break</span>
+          </div>
           <div className="timer">
             <button data-testid="timer-display" onClick={this.resetTimer}>
               <Timer secondsRemaining={this.state.secondsRemaining} />
