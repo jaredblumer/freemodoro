@@ -1,8 +1,6 @@
 html,
 body {
   border: none;
-  background-color: #f05b56;
-  color: white;
   font-family: "Roboto", sans-serif;
   font-size: 16px;
   line-height: 1em;
@@ -39,10 +37,38 @@ body {
   width: 50%;
 }
 
+.description-container {
+  background-color: white;
+  padding-top: 30px;
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 20px 12px;
+}
+
+.description-container h1 {
+  color: black;
+  font-size: 18px;
+  line-height: 1.4em;
+  margin: 0;
+}
+
+.description-container h2 {
+  color: black;
+  font-size: 14px;
+  line-height: 1.4em;
+  margin-top: 28px;
+}
+
+.description-container p {
+  color: black;
+  line-height: 1.6em;
+}
+
 .display {
   background-color: #f16c68;
   border-radius: 6px;
-  margin: 0 12px;
+  margin: 0 auto;
+  max-width: 500px;
   padding: 20px 0;
   text-align: center;
 }
@@ -109,8 +135,15 @@ body {
   color: green;
 }
 
+.pomodoro-container {
+  background-color: #f05b56;
+}
+
 .Pomodoro {
-  max-width: 500px;
+  color: white;
+  margin: 0 auto;
+  max-width: 700px;
+  padding-bottom: 33px;
 }
 
 .Pomodoro button {
@@ -189,8 +222,17 @@ body {
   font-size: 5.063em;
 }
 
-@media screen and (min-width: 500px) {
-  .Pomodoro {
-    margin: 0 auto;
+@media screen and (max-width: 540px) {
+  .description-container {
+    padding: 20px 20px;
+  }
+
+  .display {
+    margin: 0 20px;
+  }
+
+  .Pomodoro header {
+    padding: 10px 0;
+    margin: 0 20px;
   }
 }
