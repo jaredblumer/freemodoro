@@ -6,6 +6,7 @@ import Pomodoro from "./components/Pomodoro";
 import Settings from "./components/Settings";
 import Login from "./components/Login";
 import Register from "./components/Register";
+import Description from "./components/Description";
 
 import store from "./store";
 
@@ -25,7 +26,10 @@ class App extends React.Component {
               <Register />
             </Route>
             <Route path="/">
-              <Pomodoro />
+              <div className="pomodoro-container">
+                <Pomodoro />
+              </div>
+              <Description />
             </Route>
           </Switch>
         </Router>
