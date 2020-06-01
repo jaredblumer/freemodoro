@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
+import { Link } from "react-router-dom";
 import ProgressButton from "./ProgressButton";
 import Timer from "./Timer";
 import { incrementRound, toggleBreak } from "../actions/timerActions";
@@ -98,8 +99,12 @@ class Pomodoro extends React.Component {
             <h1>Freemodoro</h1>
           </div>
           <div className="menu">
-            <button>Settings</button>
-            <button>Login</button>
+            <Link to="/Settings">
+              <button>Settings</button>
+            </Link>
+            <Link to="/Login">
+              <button>Login</button>
+            </Link>
           </div>
         </header>
         <div className="display">
