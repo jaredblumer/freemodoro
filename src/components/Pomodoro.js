@@ -4,7 +4,6 @@ import { connect } from "react-redux";
 import ProgressButton from "./ProgressButton";
 import Timer from "./Timer";
 import { incrementRound, toggleBreak } from "../actions/timerActions";
-import Navigation from "./Navigation";
 
 class Pomodoro extends React.Component {
   constructor(props) {
