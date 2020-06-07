@@ -30,6 +30,10 @@ class App extends React.Component {
                 <Pomodoro />
               </div>
               <Description />
+              <footer>
+                Built by{" "}
+                <a href="https://github.com/jaredblumer">Jared Blumer</a>
+              </footer>
             </Route>
           </Switch>
         </Router>
