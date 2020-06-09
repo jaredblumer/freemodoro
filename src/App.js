@@ -17,7 +17,14 @@ class App extends React.Component {
         <Router>
           <Switch>
             <Route path="/settings">
-              <Settings />
+              <div className="settings-container">
+                <Settings />
+              </div>
+              <Description />
+              <footer>
+                Built by{" "}
+                <a href="https://github.com/jaredblumer">Jared Blumer</a>
+              </footer>
             </Route>
             <Route path="/login">
               <Login />

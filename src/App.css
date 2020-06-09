@@ -99,7 +99,6 @@ footer a {
 }
 
 .login-container,
-.settings-container,
 .register-container {
   align-items: center;
   display: flex;
@@ -157,11 +156,13 @@ p:last-of-type {
   color: green;
 }
 
-.pomodoro-container {
+.pomodoro-container,
+.settings-container {
   background-color: #f05b56;
 }
 
-.Pomodoro {
+.Pomodoro,
+.Settings {
   color: white;
   margin: 0 auto;
   max-width: 700px;
@@ -189,7 +190,6 @@ p:last-of-type {
 
 .Pomodoro header div {
   width: 50%;
-  z-index: 2;
 }
 
 .Pomodoro h1 {
@@ -204,10 +204,93 @@ p:last-of-type {
   padding: 2px 12px;
 }
 
-.settings-container input {
-  min-width: 200px;
-  max-width: 300px;
-  margin-bottom: 20px;
+.Settings button {
+  border: 0;
+  border-radius: 4px;
+  background-color: #f16c68;
+  color: white;
+  cursor: pointer;
+  outline: none;
+  padding: 8px 12px;
+}
+
+.Settings header {
+  align-items: center;
+  display: flex;
+  flex-flow: row;
+  height: 60px;
+  padding: 10px;
+}
+
+.Settings h1 {
+  font-size: 20px;
+}
+
+.Settings header div {
+  width: 50%;
+}
+
+.Settings label {
+  display: block;
+  font-size: 16px;
+  font-weight: 500;
+  margin-bottom: 6px;
+}
+
+.Settings .display {
+  background-color: #f16c68;
+  border-radius: 6px;
+  max-width: 500px;
+  padding: 20px 0;
+  text-align: left;
+}
+
+.setting-container {
+  margin-bottom: 15px;
+}
+
+.slider-output {
+  display: inline-block;
+  font-size: 18px;
+  font-weight: bolder;
+  width: 30px;
+}
+
+.slider {
+  -webkit-appearance: none;
+  width: 70%;
+  height: 20px;
+  background: white;
+  border-radius: 4px;
+  margin: 0;
+  outline: none;
+  opacity: 0.3;
+  -webkit-transition: 0.2s;
+  transition: opacity 0.2s;
+}
+
+.slider:hover {
+  opacity: 0.8;
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 25px;
+  height: 25px;
+  background: #ff615c;
+  border: 1px solid white;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.slider::-moz-range-thumb {
+  width: 25px;
+  height: 25px;
+  background: #ff615c;
+  border: 1px solid white;
+  border-radius: 4px;
+  cursor: pointer;
 }
 
 .start {

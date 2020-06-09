@@ -67,12 +67,20 @@ class Settings extends React.Component {
     }
 
     return (
-      <div className="settings-container">
-        <div>
-          <h1>Settings</h1>
-          <div>
+      <div className="Settings">
+        <header>
+          <div className="name">
+            <h1>Freemodoro</h1>
+          </div>
+          <div className="menu">
+            <Link to="/Home">
+              <button>Home</button>
+            </Link>
+          </div>
+        </header>
+        <div className="display">
+          <div className="setting-container">
             <label htmlFor="roundLength">Round Length</label>
-            <br />
             <input
               type="range"
               id="roundLength"
@@ -80,14 +88,16 @@ class Settings extends React.Component {
               min="1"
               max="60"
               step="1"
+              className="slider"
               defaultValue={this.props.roundLength / 60}
               onChange={id => this.renderValue("roundLength")}
             />
-            <output id="roundLengthOutput"></output>
+            <div className="slider-output">
+              <output id="roundLengthOutput"></output>
+            </div>
           </div>
-          <div>
+          <div className="setting-container">
             <label htmlFor="shortBreakLength">Short Break Length</label>
-            <br />
             <input
               type="range"
               id="shortBreakLength"
@@ -95,14 +105,16 @@ class Settings extends React.Component {
               min="1"
               max="60"
               step="1"
+              className="slider"
               defaultValue={this.props.shortBreakLength / 60}
               onChange={id => this.renderValue("shortBreakLength")}
             />
-            <output id="shortBreakLengthOutput"></output>
+            <div className="slider-output">
+              <output id="shortBreakLengthOutput"></output>
+            </div>
           </div>
-          <div>
+          <div className="setting-container">
             <label htmlFor="longBreakLength">Long Break Length</label>
-            <br />
             <input
               type="range"
               id="longBreakLength"
@@ -110,14 +122,16 @@ class Settings extends React.Component {
               min="1"
               max="60"
               step="1"
+              className="slider"
               defaultValue={this.props.longBreakLength / 60}
               onChange={id => this.renderValue("longBreakLength")}
             />
-            <output id="longBreakLengthOutput"></output>
+            <div className="slider-output">
+              <output id="longBreakLengthOutput"></output>
+            </div>
           </div>
-          <div>
+          <div className="setting-container">
             <label htmlFor="sessionsPerRound">Sessions Per Round</label>
-            <br />
             <input
               type="range"
               id="sessionsPerRound"
@@ -125,14 +139,16 @@ class Settings extends React.Component {
               min="1"
               max="20"
               step="1"
+              className="slider"
               defaultValue={this.props.totalRound}
               onChange={id => this.renderValue("sessionsPerRound")}
             />
-            <output id="sessionsPerRoundOutput"></output>
+            <div className="slider-output">
+              <output id="sessionsPerRoundOutput"></output>
+            </div>
           </div>
-          <div>
+          <div className="setting-container">
             <label htmlFor="dailyGoal">Daily Goal</label>
-            <br />
             <input
               type="range"
               id="dailyGoal"
@@ -140,19 +156,17 @@ class Settings extends React.Component {
               min="1"
               max="60"
               step="1"
+              className="slider"
               defaultValue={this.props.totalGoal}
               onChange={id => this.renderValue("dailyGoal")}
             />
-            <output id="dailyGoalOutput"></output>
+            <div className="slider-output">
+              <output id="dailyGoalOutput"></output>
+            </div>
           </div>
-          <div className="login-buttons">
-            <Link to="/" className="link">
-              <Button id="button-margin">Home</Button>
-            </Link>
-            <Button variant="contained" type="button" onClick={this.save}>
-              Save
-            </Button>
-          </div>
+          <button type="button" onClick={this.save}>
+            Save
+          </button>
         </div>
       </div>
     );
