@@ -79,8 +79,8 @@ class Settings extends React.Component {
           </div>
         </header>
         <div className="display">
+          <label htmlFor="roundLength">Round Length</label>
           <div className="setting-container">
-            <label htmlFor="roundLength">Round Length</label>
             <input
               type="range"
               id="roundLength"
@@ -96,8 +96,8 @@ class Settings extends React.Component {
               <output id="roundLengthOutput"></output>
             </div>
           </div>
+          <label htmlFor="shortBreakLength">Short Break Length</label>
           <div className="setting-container">
-            <label htmlFor="shortBreakLength">Short Break Length</label>
             <input
               type="range"
               id="shortBreakLength"
@@ -113,8 +113,8 @@ class Settings extends React.Component {
               <output id="shortBreakLengthOutput"></output>
             </div>
           </div>
+          <label htmlFor="longBreakLength">Long Break Length</label>
           <div className="setting-container">
-            <label htmlFor="longBreakLength">Long Break Length</label>
             <input
               type="range"
               id="longBreakLength"
@@ -130,8 +130,8 @@ class Settings extends React.Component {
               <output id="longBreakLengthOutput"></output>
             </div>
           </div>
+          <label htmlFor="sessionsPerRound">Sessions Per Round</label>
           <div className="setting-container">
-            <label htmlFor="sessionsPerRound">Sessions Per Round</label>
             <input
               type="range"
               id="sessionsPerRound"
@@ -147,8 +147,8 @@ class Settings extends React.Component {
               <output id="sessionsPerRoundOutput"></output>
             </div>
           </div>
+          <label htmlFor="dailyGoal">Daily Goal</label>
           <div className="setting-container">
-            <label htmlFor="dailyGoal">Daily Goal</label>
             <input
               type="range"
               id="dailyGoal"
@@ -164,9 +164,11 @@ class Settings extends React.Component {
               <output id="dailyGoalOutput"></output>
             </div>
           </div>
-          <button type="button" onClick={this.save}>
-            Save
-          </button>
+          <div className="button-container">
+            <button type="button" id="save-button" onClick={this.save}>
+              Save
+            </button>
+          </div>
         </div>
       </div>
     );

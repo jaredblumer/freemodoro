@@ -8,6 +8,10 @@ body {
   padding: 0;
 }
 
+.button-container {
+  text-align: center;
+}
+
 #button-margin {
   margin-right: 3px;
 }
@@ -53,6 +57,7 @@ footer a {
 .description-container {
   background-color: white;
   padding-top: 30px;
+  min-width: 280px;
   max-width: 700px;
   margin: 0 auto;
   padding: 20px 12px;
@@ -80,9 +85,12 @@ footer a {
 .display {
   background-color: #f16c68;
   border-radius: 6px;
+  display: flex;
+  flex-direction: column;
   margin: 0 auto;
+  min-width: 240px;
   max-width: 500px;
-  padding: 20px 0;
+  padding: 20px;
   text-align: center;
 }
 
@@ -179,17 +187,15 @@ p:last-of-type {
   padding: 0;
 }
 
-.Pomodoro header {
+header {
   align-items: center;
   display: flex;
   flex-flow: row;
   height: 60px;
+  min-width: 280px;
+  justify-content: space-between;
   padding: 10px;
   z-index: 999;
-}
-
-.Pomodoro header div {
-  width: 50%;
 }
 
 .Pomodoro h1 {
@@ -201,7 +207,11 @@ p:last-of-type {
 }
 
 .round-type button {
-  padding: 2px 12px;
+  padding: 2px 6px;
+}
+
+#save-button {
+  border: 1px solid white;
 }
 
 .Settings button {
@@ -214,23 +224,12 @@ p:last-of-type {
   padding: 8px 12px;
 }
 
-.Settings header {
-  align-items: center;
-  display: flex;
-  flex-flow: row;
-  height: 60px;
-  padding: 10px;
-}
-
 .Settings h1 {
   font-size: 20px;
 }
 
-.Settings header div {
-  width: 50%;
-}
-
 .Settings label {
+  align-self: stretch;
   display: block;
   font-size: 16px;
   font-weight: 500;
@@ -240,33 +239,36 @@ p:last-of-type {
 .Settings .display {
   background-color: #f16c68;
   border-radius: 6px;
+  min-width: 240px;
   max-width: 500px;
-  padding: 20px 0;
+  padding: 20px;
   text-align: left;
 }
 
 .setting-container {
-  margin-bottom: 15px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-bottom: 18px;
 }
 
 .slider-output {
   display: inline-block;
   font-size: 18px;
   font-weight: bolder;
-  width: 30px;
 }
 
 .slider {
-  -webkit-appearance: none;
-  width: 70%;
   height: 20px;
   background: white;
   border-radius: 4px;
   margin: 0;
   outline: none;
   opacity: 0.3;
-  -webkit-transition: 0.2s;
   transition: opacity 0.2s;
+  -webkit-appearance: none;
+  -webkit-transition: 0.2s;
+  width: 90%;
 }
 
 .slider:hover {
@@ -327,7 +329,7 @@ p:last-of-type {
   font-size: 5.063em;
 }
 
-@media screen and (max-width: 540px) {
+@media screen and (max-width: 600px) {
   .description-container {
     padding: 20px 20px;
   }
@@ -336,7 +338,7 @@ p:last-of-type {
     margin: 0 20px;
   }
 
-  .Pomodoro header {
+  header {
     padding: 10px 0;
     margin: 0 20px;
   }
