@@ -152,7 +152,6 @@ class Register extends Component {
       <div className="register-container">
         <div>
           <h1>Freemodoro</h1>
-
           <div className="password-requirements">
             <span>Password must contain the following:</span>
             <p id="lowercase" className="invalid">

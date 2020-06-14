@@ -78,7 +78,7 @@ class Login extends Component {
       <div className="login-container">
         <div>
           <h1>Freemodoro</h1>
-
+          <h2>Free and open source productivity.</h2>
           <form onSubmit={this.onSubmit}>
             <div className="textfield-container">
               <TextField

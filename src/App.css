@@ -3,6 +3,7 @@ body {
   border: none;
   font-family: "Roboto", sans-serif;
   font-size: 16px;
+  height: 100%;
   line-height: 1em;
   margin: 0;
   padding: 0;
@@ -110,11 +111,18 @@ footer a {
 .register-container {
   align-items: center;
   display: flex;
+  height: 100%;
   justify-content: center;
 }
 
 .login-container h1 {
   font-size: 2em;
+  margin: 0.67em 0;
+}
+
+.login-container h2 {
+  font-size: 1.2em;
+  font-weight: 400;
   margin: 0.67em 0;
 }
 
@@ -204,6 +212,10 @@ header {
 
 .progress-bar {
   transition: all 1s ease;
+}
+
+#root {
+  height: 100%;
 }
 
 .round-type button {
