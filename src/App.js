@@ -40,6 +40,8 @@ class App extends React.Component {
               <footer>
                 Built by{" "}
                 <a href="https://github.com/jaredblumer">Jared Blumer</a>
+                {" | "}
+                <a href="https://github.com/jaredblumer/freemodoro">GitHub</a>
               </footer>
             </Route>
           </Switch>
