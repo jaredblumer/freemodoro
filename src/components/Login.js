@@ -2,8 +2,6 @@ import React, { Component } from "react";
 import { Redirect, Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { login, saveSettings } from "../actions/timerActions";
-import TextField from "@material-ui/core/TextField";
-import Button from "@material-ui/core/Button";
 
 class Login extends Component {
   constructor(props) {
@@ -76,40 +74,38 @@ class Login extends Component {
 
     return (
       <div className="login-container">
-        <div>
+        <div className="login-register-display">
           <h1>Freemodoro</h1>
           <h2>Free and open source productivity.</h2>
           <form onSubmit={this.onSubmit}>
             <div className="textfield-container">
-              <TextField
-                className="TextField"
+              <input
                 type="email"
-                label="Email"
+                className="TextField"
+                placeholder="Email"
                 name="email"
-                variant="filled"
                 onChange={this.handleInputChange}
               />
             </div>
             <div className="textfield-container">
-              <TextField
-                className="TextField"
+              <input
                 type="password"
-                label="Password"
+                className="TextField"
+                placeholder="Password"
                 name="password"
-                variant="filled"
                 onChange={this.handleInputChange}
               />
             </div>
             <div className="login-buttons">
               <Link to="/" className="link">
-                <Button>Home</Button>
+                <button className="secondary-button">Home</button>
               </Link>
               <Link to="/register" className="link">
-                <Button id="button-margin">Register</Button>
+                <button className="secondary-button">Register</button>
               </Link>
-              <Button variant="contained" type="submit">
+              <button className="primary-button" type="submit">
                 Login
-              </Button>
+              </button>
             </div>
           </form>
         </div>

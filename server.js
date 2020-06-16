@@ -123,6 +123,6 @@ app.post("/api/saveSettings", function(req, res) {
   });
 });
 
-app.listen(process.env.PORT || 8080, () =>
+app.listen(process.env.PORT || 3333, () =>
   console.log("Freemodoro server listening.")
 );

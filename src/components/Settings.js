@@ -3,7 +3,6 @@ import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import { Link, Redirect } from "react-router-dom";
 import { saveSettings } from "../actions/timerActions";
-import Button from "@material-ui/core/Button";
 
 class Settings extends React.Component {
   constructor(props) {

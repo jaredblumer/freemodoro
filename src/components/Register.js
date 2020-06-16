@@ -1,8 +1,6 @@
 import React, { Component } from "react";
 import { Redirect, Link } from "react-router-dom";
 import { connect } from "react-redux";
-import TextField from "@material-ui/core/TextField";
-import Button from "@material-ui/core/Button";
 
 class Register extends Component {
   constructor(props) {
@@ -150,7 +148,7 @@ class Register extends Component {
 
     return (
       <div className="register-container">
-        <div>
+        <div className="login-register-display">
           <h1>Freemodoro</h1>
           <div className="password-requirements">
             <span>Password must contain the following:</span>
@@ -173,45 +171,42 @@ class Register extends Component {
 
           <form onSubmit={this.onSubmit}>
             <div className="textfield-container">
-              <TextField
-                className="TextField"
+              <input
                 type="email"
-                label="Email"
+                className="TextField"
+                placeholder="Email"
                 name="email"
-                variant="filled"
                 onChange={this.handleChange}
               />
             </div>
             <div className="textfield-container">
-              <TextField
-                className="TextField"
+              <input
                 type="password"
-                label="Password"
+                className="TextField"
+                placeholder="Password"
                 name="password"
-                variant="filled"
                 onChange={this.handlePasswordChange}
               />
             </div>
             <div className="textfield-container">
-              <TextField
-                className="TextField"
+              <input
                 type="password"
-                label="Verify Password"
-                name="passwordVerification"
-                variant="filled"
-                onChange={this.handleChange}
+                className="TextField"
+                placeholder="Verify Password"
+                name="password"
+                onChange={this.handleInputChange}
               />
             </div>
             <div className="login-buttons">
               <Link to="/" className="link">
-                <Button>Home</Button>
+                <button className="secondary-button">Home</button>
               </Link>
               <Link to="/login" className="link">
-                <Button id="button-margin">Login</Button>
+                <button className="secondary-button">Login</button>
               </Link>
-              <Button variant="contained" type="submit">
+              <button className="primary-button" type="submit">
                 Register
-              </Button>
+              </button>
             </div>
           </form>
         </div>

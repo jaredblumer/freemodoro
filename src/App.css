@@ -110,20 +110,29 @@ footer a {
 .login-container,
 .register-container {
   align-items: center;
+  background-color: #f05b56;
   display: flex;
   height: 100%;
   justify-content: center;
 }
 
-.login-container h1 {
+.login-register-display h1 {
   font-size: 2em;
-  margin: 0.67em 0;
+  margin: 0;
 }
 
-.login-container h2 {
+.login-register-display h2 {
   font-size: 1.2em;
   font-weight: 400;
   margin: 0.67em 0;
+}
+
+.login-register-display {
+  background-color: #f16c68;
+  color: white;
+  border-radius: 6px;
+  margin: 0 20px;
+  padding: 20px;
 }
 
 .menu {
@@ -156,20 +165,21 @@ p:last-of-type {
 }
 
 .password-requirements {
-  margin-top: 20px;
+  margin: 12px 0;
 }
 
 .password-requirements p {
-  font-size: 12px;
-  margin: 4px;
+  font-size: 14px;
+  margin: 10px;
 }
 
 .password-requirements .invalid {
-  color: #f50057;
+  color: white;
 }
 
 .password-requirements .valid {
-  color: green;
+  color: white;
+  font-weight: 600;
 }
 
 .pomodoro-container,
@@ -314,6 +324,59 @@ header {
   text-align: center;
 }
 
+.primary-button {
+  border: none;
+  border-radius: 4px;
+  background-color: #e0e0e0;
+  box-sizing: border-box;
+  box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2),
+    0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12);
+  cursor: pointer;
+  font-family: "Roboto", "Helvetica", "Arial", sans-sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.02857em;
+  line-height: 1.75;
+  padding: 6px 16px;
+  min-width: 64px;
+  text-transform: uppercase;
+  transition: 250ms;
+}
+
+.primary-button:focus {
+  outline: none;
+}
+
+.primary-button:hover {
+  box-shadow: 0px 3px 4px 0px rgba(0, 0, 0, 0.2),
+    0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12);
+}
+
+.secondary-button {
+  border: none;
+  border-radius: 4px;
+  background-color: transparent;
+  box-sizing: border-box;
+  cursor: pointer;
+  font-family: "Roboto", "Helvetica", "Arial", sans-sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.02857em;
+  line-height: 1.75;
+  padding: 6px 8px;
+  min-width: 64px;
+  text-transform: uppercase;
+  transition: 250ms;
+}
+
+.secondary-button:focus {
+  outline: none;
+}
+
+.secondary-button:hover {
+  background-color: rgba(0, 0, 0, 0.035);
+}
+
 #svg {
   transform: rotate(-90deg);
 }
@@ -323,7 +386,15 @@ header {
 }
 
 .TextField {
-  width: 300px;
+  border: 2px solid #f05b56;
+  border-radius: 4px;
+  font-size: 16px;
+  padding: 12px;
+  width: 260px;
+}
+
+.TextField:focus {
+  outline: none;
 }
 
 .textfield-container {
