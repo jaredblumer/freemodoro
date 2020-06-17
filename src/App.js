@@ -1,7 +1,7 @@
 import React from "react";
 import "./App.css";
 import { Provider } from "react-redux";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Pomodoro from "./components/Pomodoro";
 import Settings from "./components/Settings";
 import Login from "./components/Login";
