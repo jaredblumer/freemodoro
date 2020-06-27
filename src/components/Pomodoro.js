@@ -4,7 +4,13 @@ import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import ProgressButton from "./ProgressButton";
 import Timer from "./Timer";
-import { incrementRound, toggleBreak } from "../actions/timerActions";
+import {
+  incrementRound,
+  toggleBreak,
+  toggleShortBreak,
+  toggleLongBreak,
+  togglePomodoro
+} from "../actions/timerActions";
 
 class Pomodoro extends React.Component {
   constructor(props) {
@@ -18,6 +24,9 @@ class Pomodoro extends React.Component {
     this.resetTimer = this.resetTimer.bind(this);
     this.timer = this.timer.bind(this);
     this.determineSecondsStart = this.determineSecondsStart.bind(this);
+    this.handleShortBreakButton = this.handleShortBreakButton.bind(this);
+    this.handleLongBreakButton = this.handleLongBreakButton.bind(this);
+    this.handlePomodoroButton = this.handlePomodoroButton.bind(this);
   }
 
   handleNav() {
@@ -44,6 +53,33 @@ class Pomodoro extends React.Component {
   }
 
   resetTimer() {
+    this.setState({
+      secondsRemaining: this.determineSecondsStart(),
+      timerOn: false
+    });
+    clearInterval(this.state.timerInterval);
+  }
+
+  async handleShortBreakButton() {
+    await this.props.toggleShortBreak();
+    this.setState({
+      secondsRemaining: this.determineSecondsStart(),
+      timerOn: false
+    });
+    clearInterval(this.state.timerInterval);
+  }
+
+  async handleLongBreakButton() {
+    await this.props.toggleLongBreak();
+    this.setState({
+      secondsRemaining: this.determineSecondsStart(),
+      timerOn: false
+    });
+    clearInterval(this.state.timerInterval);
+  }
+
+  async handlePomodoroButton() {
+    await this.props.togglePomodoro();
     this.setState({
       secondsRemaining: this.determineSecondsStart(),
       timerOn: false
@@ -109,9 +145,9 @@ class Pomodoro extends React.Component {
         </header>
         <div className="display">
           <div className="round-type">
-            <button>Pomodoro</button>
-            <button>Short Break</button>
-            <button>Long Break</button>
+            <button onClick={this.handlePomodoroButton}>Pomodoro</button>
+            <button onClick={this.handleShortBreakButton}>Short Break</button>
+            <button onClick={this.handleLongBreakButton}>Long Break</button>
           </div>
           <div className="timer">
             <button data-testid="timer-display" onClick={this.resetTimer}>
@@ -182,6 +218,10 @@ Pomodoro.propTypes = {
   incrementRound: PropTypes.func.isRequired
 };
 
-export default connect(mapStateToProps, { incrementRound, toggleBreak })(
-  Pomodoro
-);
+export default connect(mapStateToProps, {
+  incrementRound,
+  toggleBreak,
+  toggleShortBreak,
+  toggleLongBreak,
+  togglePomodoro
+})(Pomodoro);

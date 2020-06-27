@@ -3,7 +3,10 @@ import {
   TOGGLE_BREAK,
   SAVE_SETTINGS,
   LOGIN,
-  LOGOUT
+  LOGOUT,
+  TOGGLE_SHORTBREAK,
+  TOGGLE_LONGBREAK,
+  TOGGLE_POMODORO
 } from "./types";
 
 export const incrementRound = () => {
@@ -28,6 +31,24 @@ export const logout = () => {
 export const toggleBreak = () => {
   return {
     type: TOGGLE_BREAK
+  };
+};
+
+export const toggleShortBreak = () => {
+  return {
+    type: TOGGLE_SHORTBREAK
+  };
+};
+
+export const toggleLongBreak = () => {
+  return {
+    type: TOGGLE_LONGBREAK
+  };
+};
+
+export const togglePomodoro = () => {
+  return {
+    type: TOGGLE_POMODORO
   };
 };
 

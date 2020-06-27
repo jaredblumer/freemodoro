@@ -4,7 +4,10 @@ import {
   SAVE_SETTINGS,
   LOGIN,
   LOGOUT,
-  UPDATE_USERNAME
+  UPDATE_USERNAME,
+  TOGGLE_SHORTBREAK,
+  TOGGLE_LONGBREAK,
+  TOGGLE_POMODORO
 } from "../actions/types";
 
 export default function(state, action) {
@@ -37,6 +40,32 @@ export default function(state, action) {
         data: {
           ...state.data,
           onBreak: !state.data.onBreak
+        }
+      };
+    case TOGGLE_SHORTBREAK:
+      return {
+        ...state,
+        data: {
+          ...state.data,
+          onBreak: true,
+          breakType: "short"
+        }
+      };
+    case TOGGLE_LONGBREAK:
+      return {
+        ...state,
+        data: {
+          ...state.data,
+          onBreak: true,
+          breakType: "long"
+        }
+      };
+    case TOGGLE_POMODORO:
+      return {
+        ...state,
+        data: {
+          ...state.data,
+          onBreak: false
         }
       };
     case LOGIN:
