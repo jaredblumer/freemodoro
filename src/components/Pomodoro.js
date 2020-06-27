@@ -62,7 +62,7 @@ class Pomodoro extends React.Component {
           } else {
             if (!this.props.onBreak) {
               // Set up break
-              document.body.style.backgroundColor = "green";
+              document.body.style.backgroundColor = "#CC3C3B";
               this.props.incrementRound();
               this.props.toggleBreak(); // Turn break on
               this.setState({
