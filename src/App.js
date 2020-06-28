@@ -7,10 +7,36 @@ import Settings from "./components/Settings";
 import Login from "./components/Login";
 import Register from "./components/Register";
 import Description from "./components/Description";
+import Footer from "./components/Footer";
 
 import store from "./store";
 
 class App extends React.Component {
+  componentDidUpdate() {
+    const { onBreak, breakType } = this.props;
+
+    if (onBreak && breakType === "short") {
+      let links = document.getElementsByClassName("footer-links");
+      console.log(links);
+      for (let i = 0; i < links.length; i++) {
+        links[i].classList.remove("long-break-link");
+        links[i].classList.add("short-break-link");
+      }
+    } else if (onBreak && breakType === "long") {
+      let links = document.getElementsByClassName("footer-links");
+      for (let i = 0; i < links.length; i++) {
+        links[i].classList.remove("short-break-link");
+        links[i].classList.add("long-break-link");
+      }
+    } else {
+      let links = document.getElementsByClassName("footer-links");
+      for (let i = 0; i < links.length; i++) {
+        links[i].classList.remove("short-break-link");
+        links[i].classList.remove("long-break-link");
+      }
+    }
+  }
+
   render() {
     return (
       <Provider store={store}>
@@ -21,10 +47,7 @@ class App extends React.Component {
                 <Settings />
               </div>
               <Description />
-              <footer>
-                Built by{" "}
-                <a href="https://github.com/jaredblumer">Jared Blumer</a>
-              </footer>
+              <Footer />
             </Route>
             <Route path="/login">
               <Login />
@@ -37,22 +60,7 @@ class App extends React.Component {
                 <Pomodoro />
               </div>
               <Description />
-              <footer>
-                Built by{" "}
-                <a
-                  className="footer-links"
-                  href="https://github.com/jaredblumer"
-                >
-                  Jared Blumer
-                </a>
-                {" | "}
-                <a
-                  className="footer-links"
-                  href="https://github.com/jaredblumer/freemodoro"
-                >
-                  GitHub
-                </a>
-              </footer>
+              <Footer />
             </Route>
           </Switch>
         </Router>

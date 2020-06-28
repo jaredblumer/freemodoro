@@ -107,14 +107,13 @@ body {
 }
 
 footer {
-  /* background-color: #e0e0e0; */
   border-top: 2px solid #efefef;
   font-size: 14px;
   padding: 20px 0;
   text-align: center;
 }
 
-footer a {
+.footer-links {
   color: #bc3033;
   font-weight: 500;
   text-decoration: none;
