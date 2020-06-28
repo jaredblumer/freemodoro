@@ -141,6 +141,27 @@ class Pomodoro extends React.Component {
     } else {
       pomodoroButton.classList.add("button-active");
     }
+
+    // Update background colors
+    if (onBreak && breakType === "short") {
+      let containers = document.getElementsByClassName("container");
+      for (let i = 0; i < containers.length; i++) {
+        containers[i].classList.remove("container-long-break");
+        containers[i].classList.add("container-short-break");
+      }
+    } else if (onBreak && breakType === "long") {
+      let containers = document.getElementsByClassName("container");
+      for (let i = 0; i < containers.length; i++) {
+        containers[i].classList.remove("container-short-break");
+        containers[i].classList.add("container-long-break");
+      }
+    } else {
+      let containers = document.getElementsByClassName("container");
+      for (let i = 0; i < containers.length; i++) {
+        containers[i].classList.remove("container-short-break");
+        containers[i].classList.remove("container-long-break");
+      }
+    }
   }
 
   render() {
