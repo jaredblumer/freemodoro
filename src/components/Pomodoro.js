@@ -128,6 +128,21 @@ class Pomodoro extends React.Component {
     }
   }
 
+  componentDidMount() {
+    const { onBreak, breakType } = this.props;
+    let pomodoroButton = document.getElementById("pomodoro-button"),
+      shortBreakButton = document.getElementById("short-break-button"),
+      longBreakButton = document.getElementById("long-break-button");
+
+    if (onBreak && breakType === "short") {
+      shortBreakButton.classList.add("button-active");
+    } else if (onBreak && breakType === "long") {
+      longBreakButton.classList.add("button-active");
+    } else {
+      pomodoroButton.classList.add("button-active");
+    }
+  }
+
   render() {
     const { onBreak, breakType } = this.props;
 
@@ -139,6 +154,18 @@ class Pomodoro extends React.Component {
       foreground = "color-long-break";
     } else {
       foreground = "color-pomodoro";
+    }
+
+    let pomodoroButton = document.getElementById("pomodoro-button"),
+      shortBreakButton = document.getElementById("short-break-button"),
+      longBreakButton = document.getElementById("long-break-button");
+
+    if (shortBreakButton && onBreak && breakType === "short") {
+      shortBreakButton.classList.add("button-active");
+    } else if (longBreakButton && onBreak && breakType === "long") {
+      longBreakButton.classList.add("button-active");
+    } else if (pomodoroButton) {
+      pomodoroButton.classList.add("button-active");
     }
 
     // Update background colors
@@ -179,16 +206,25 @@ class Pomodoro extends React.Component {
         </header>
         <div id="display" className={foreground}>
           <div className="round-type">
-            <button className={foreground} onClick={this.handlePomodoroButton}>
+            <button
+              id="pomodoro-button"
+              className={foreground}
+              onClick={this.handlePomodoroButton}
+            >
               Pomodoro
             </button>
             <button
+              id="short-break-button"
               className={foreground}
               onClick={this.handleShortBreakButton}
             >
               Short Break
             </button>
-            <button className={foreground} onClick={this.handleLongBreakButton}>
+            <button
+              id="long-break-button"
+              className={foreground}
+              onClick={this.handleLongBreakButton}
+            >
               Long Break
             </button>
           </div>
