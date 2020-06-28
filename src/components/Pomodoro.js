@@ -62,21 +62,6 @@ class Pomodoro extends React.Component {
 
   async handleShortBreakButton() {
     await this.props.toggleShortBreak();
-
-    // Update background colors
-    let containers = document.getElementsByClassName("container");
-    for (let i = 0; i < containers.length; i++) {
-      containers[i].classList.remove("container-long-break");
-      containers[i].classList.add("container-short-break");
-    }
-
-    // Update foreground colors
-    let elements = document.getElementsByClassName("color-pomodoro");
-    for (let i = 0; i < elements.length; i++) {
-      elements[i].classList.remove("color-long-break");
-      elements[i].classList.add("color-short-break");
-    }
-
     this.setState({
       secondsRemaining: this.determineSecondsStart(),
       timerOn: false
@@ -86,21 +71,6 @@ class Pomodoro extends React.Component {
 
   async handleLongBreakButton() {
     await this.props.toggleLongBreak();
-
-    // Update colors
-    let containers = document.getElementsByClassName("container");
-    for (let i = 0; i < containers.length; i++) {
-      containers[i].classList.remove("container-short-break");
-      containers[i].classList.add("container-long-break");
-    }
-
-    // Update foreground colors
-    let elements = document.getElementsByClassName("color-pomodoro");
-    for (let i = 0; i < elements.length; i++) {
-      elements[i].classList.remove("color-short-break");
-      elements[i].classList.add("color-long-break");
-    }
-
     this.setState({
       secondsRemaining: this.determineSecondsStart(),
       timerOn: false
@@ -110,21 +80,6 @@ class Pomodoro extends React.Component {
 
   async handlePomodoroButton() {
     await this.props.togglePomodoro();
-
-    // Update colors
-    let containers = document.getElementsByClassName("container");
-    for (let i = 0; i < containers.length; i++) {
-      containers[i].classList.remove("container-short-break");
-      containers[i].classList.remove("container-long-break");
-    }
-
-    // Update foreground colors
-    let elements = document.getElementsByClassName("color-pomodoro");
-    for (let i = 0; i < elements.length; i++) {
-      elements[i].classList.remove("color-short-break");
-      elements[i].classList.remove("color-long-break");
-    }
-
     this.setState({
       secondsRemaining: this.determineSecondsStart(),
       timerOn: false
@@ -143,7 +98,8 @@ class Pomodoro extends React.Component {
           } else {
             if (!this.props.onBreak) {
               // Set up break
-              document.body.style.backgroundColor = "#CC3C3B";
+              // document.body.style.backgroundColor = "#CC3C3B";
+
               this.props.incrementRound();
               this.props.toggleBreak(); // Turn break on
               this.setState({
@@ -152,7 +108,7 @@ class Pomodoro extends React.Component {
             } else {
               // Set up active round
               this.props.toggleBreak();
-              document.body.style.backgroundColor = "white";
+              // document.body.style.backgroundColor = "white";
               this.setState({
                 secondsRemaining: this.determineSecondsStart()
               });
@@ -174,11 +130,36 @@ class Pomodoro extends React.Component {
 
   render() {
     const { onBreak, breakType } = this.props;
+
+    // Update foreground colors
     let foreground = "color-pomodoro";
     if (onBreak && breakType === "short") {
       foreground = "color-short-break";
     } else if (onBreak && breakType === "long") {
       foreground = "color-long-break";
+    } else {
+      foreground = "color-pomodoro";
+    }
+
+    // Update background colors
+    if (onBreak && breakType === "short") {
+      let containers = document.getElementsByClassName("container");
+      for (let i = 0; i < containers.length; i++) {
+        containers[i].classList.remove("container-long-break");
+        containers[i].classList.add("container-short-break");
+      }
+    } else if (onBreak && breakType === "long") {
+      let containers = document.getElementsByClassName("container");
+      for (let i = 0; i < containers.length; i++) {
+        containers[i].classList.remove("container-short-break");
+        containers[i].classList.add("container-long-break");
+      }
+    } else {
+      let containers = document.getElementsByClassName("container");
+      for (let i = 0; i < containers.length; i++) {
+        containers[i].classList.remove("container-short-break");
+        containers[i].classList.remove("container-long-break");
+      }
     }
 
     return (
