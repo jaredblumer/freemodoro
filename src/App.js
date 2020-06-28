@@ -39,9 +39,19 @@ class App extends React.Component {
               <Description />
               <footer>
                 Built by{" "}
-                <a href="https://github.com/jaredblumer">Jared Blumer</a>
+                <a
+                  className="footer-links"
+                  href="https://github.com/jaredblumer"
+                >
+                  Jared Blumer
+                </a>
                 {" | "}
-                <a href="https://github.com/jaredblumer/freemodoro">GitHub</a>
+                <a
+                  className="footer-links"
+                  href="https://github.com/jaredblumer/freemodoro"
+                >
+                  GitHub
+                </a>
               </footer>
             </Route>
           </Switch>

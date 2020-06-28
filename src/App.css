@@ -120,6 +120,14 @@ footer a {
   text-decoration: none;
 }
 
+.short-break-link {
+  color: #3b5dcc !important;
+}
+
+.long-break-link {
+  color: #6f47f3 !important;
+}
+
 .footer-data-current {
   font-size: 1em;
 }
