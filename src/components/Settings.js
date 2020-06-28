@@ -66,11 +66,14 @@ class Settings extends React.Component {
     }
 
     const { onBreak, breakType } = this.props;
-    let foreground = "color-pomodoro";
+    let foreground = "color-pomodoro",
+      slider = "slider";
     if (onBreak && breakType === "short") {
       foreground = "color-short-break";
+      slider = "slider-short-break";
     } else if (onBreak && breakType === "long") {
       foreground = "color-long-break";
+      slider = "slider-long-break";
     }
 
     return (
@@ -95,7 +98,7 @@ class Settings extends React.Component {
               min="1"
               max="60"
               step="1"
-              className="slider"
+              className={slider}
               defaultValue={this.props.roundLength / 60}
               onChange={id => this.renderValue("roundLength")}
             />
@@ -112,7 +115,7 @@ class Settings extends React.Component {
               min="1"
               max="60"
               step="1"
-              className="slider"
+              className={slider}
               defaultValue={this.props.shortBreakLength / 60}
               onChange={id => this.renderValue("shortBreakLength")}
             />
@@ -129,7 +132,7 @@ class Settings extends React.Component {
               min="1"
               max="60"
               step="1"
-              className="slider"
+              className={slider}
               defaultValue={this.props.longBreakLength / 60}
               onChange={id => this.renderValue("longBreakLength")}
             />
@@ -146,7 +149,7 @@ class Settings extends React.Component {
               min="1"
               max="20"
               step="1"
-              className="slider"
+              className={slider}
               defaultValue={this.props.totalRound}
               onChange={id => this.renderValue("sessionsPerRound")}
             />
@@ -163,7 +166,7 @@ class Settings extends React.Component {
               min="1"
               max="60"
               step="1"
-              className="slider"
+              className={slider}
               defaultValue={this.props.totalGoal}
               onChange={id => this.renderValue("dailyGoal")}
             />
