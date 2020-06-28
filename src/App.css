@@ -83,8 +83,7 @@ footer a {
   line-height: 1.6em;
 }
 
-.display {
-  background-color: #cc3c3b;
+#display {
   border-radius: 6px;
   display: flex;
   flex-direction: column;
@@ -182,9 +181,19 @@ p:last-of-type {
   font-weight: 600;
 }
 
-.pomodoro-container,
-.settings-container {
+.container {
   background-color: #bc3033;
+  transition: all 2s ease;
+}
+
+.container-short-break {
+  background-color: blue;
+  transition: all 2s ease;
+}
+
+.container-long-break {
+  background-color: green;
+  transition: all 2s ease;
 }
 
 .Pomodoro,
@@ -198,7 +207,6 @@ p:last-of-type {
 .Pomodoro button {
   border: 0;
   border-radius: 4px;
-  background-color: #cc3c3b;
   color: white;
   cursor: pointer;
   outline: none;
@@ -239,7 +247,6 @@ header {
 .Settings button {
   border: 0;
   border-radius: 4px;
-  background-color: #cc3c3b;
   color: white;
   cursor: pointer;
   outline: none;
@@ -258,7 +265,10 @@ header {
   margin-bottom: 6px;
 }
 
-.Settings .display {
+#settings-display {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
   background-color: #cc3c3b;
   border-radius: 6px;
   min-width: 240px;
@@ -412,12 +422,27 @@ header {
   font-size: 5.063em;
 }
 
+.color-pomodoro {
+  background-color: #cc3c3b;
+  transition: all 2s ease;
+}
+
+.color-short-break {
+  background-color: black !important;
+  transition: all 2s ease;
+}
+
+.color-long-break {
+  background-color: orange !important;
+  transition: all 2s ease;
+}
+
 @media screen and (max-width: 600px) {
   .description-container {
     padding: 20px 20px;
   }
 
-  .display {
+  #display {
     margin: 0 20px;
   }
 

@@ -65,6 +65,14 @@ class Settings extends React.Component {
       return <Redirect to="/" />;
     }
 
+    const { onBreak, breakType } = this.props;
+    let foreground = "color-pomodoro";
+    if (onBreak && breakType === "short") {
+      foreground = "color-short-break";
+    } else if (onBreak && breakType === "long") {
+      foreground = "color-long-break";
+    }
+
     return (
       <div className="Settings">
         <header>
@@ -73,11 +81,11 @@ class Settings extends React.Component {
           </div>
           <div className="menu">
             <Link to="/Home">
-              <button>Home</button>
+              <button className={foreground}>Home</button>
             </Link>
           </div>
         </header>
-        <div className="display">
+        <div id="settings-display" className={foreground}>
           <label htmlFor="roundLength">Round Length</label>
           <div className="setting-container">
             <input
@@ -164,7 +172,12 @@ class Settings extends React.Component {
             </div>
           </div>
           <div className="button-container">
-            <button type="button" id="save-button" onClick={this.save}>
+            <button
+              className={foreground}
+              type="button"
+              id="save-button"
+              onClick={this.save}
+            >
               Save
             </button>
           </div>

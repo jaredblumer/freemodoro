@@ -17,7 +17,7 @@ class App extends React.Component {
         <Router>
           <Switch>
             <Route path="/settings">
-              <div className="settings-container">
+              <div className="container">
                 <Settings />
               </div>
               <Description />
@@ -33,7 +33,7 @@ class App extends React.Component {
               <Register />
             </Route>
             <Route path="/">
-              <div className="pomodoro-container">
+              <div className="container">
                 <Pomodoro />
               </div>
               <Description />
