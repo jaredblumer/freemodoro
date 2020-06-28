@@ -19,32 +19,32 @@ body {
 
 .color-pomodoro {
   background-color: #cc3c3b;
-  transition: all 2s ease;
+  transition: all 1s ease;
 }
 
 .color-short-break {
   background-color: #4b69f3 !important;
-  transition: all 2s ease;
+  transition: all 1s ease;
 }
 
 .color-long-break {
   background-color: #6f47f3 !important;
-  transition: all 2s ease;
+  transition: all 1s ease;
 }
 
 .container {
   background-color: #bc3033;
-  transition: all 2s ease;
+  transition: all 1s ease;
 }
 
 .container-short-break {
   background-color: #3b5dcc;
-  transition: all 2s ease;
+  transition: all 1s ease;
 }
 
 .container-long-break {
   background-color: #5f3bcc;
-  transition: all 2s ease;
+  transition: all 1s ease;
 }
 
 .data {
