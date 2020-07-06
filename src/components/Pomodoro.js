@@ -256,9 +256,6 @@ class Pomodoro extends React.Component {
             <Link to="/Settings">
               <button className={foreground}>Settings</button>
             </Link>
-            <Link to="/Login">
-              <button className={foreground}>Login</button>
-            </Link>
           </div>
         </header>
         <div id="display" className={foreground}>

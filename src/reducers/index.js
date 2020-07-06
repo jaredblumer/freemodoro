@@ -2,8 +2,6 @@ import {
   INCREMENT_ROUND,
   TOGGLE_BREAK,
   SAVE_SETTINGS,
-  LOGIN,
-  LOGOUT,
   UPDATE_USERNAME,
   TOGGLE_SHORTBREAK,
   TOGGLE_LONGBREAK,
@@ -66,22 +64,6 @@ export default function(state, action) {
         data: {
           ...state.data,
           onBreak: false
-        }
-      };
-    case LOGIN:
-      return {
-        ...state,
-        user: {
-          username: action.payload,
-          loggedIn: !state.user.loggedIn
-        }
-      };
-    case LOGOUT:
-      return {
-        ...state,
-        user: {
-          ...state.user,
-          loggedIn: !state.user.loggedIn
         }
       };
     case SAVE_SETTINGS:

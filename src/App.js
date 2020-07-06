@@ -4,8 +4,6 @@ import { Provider } from "react-redux";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Pomodoro from "./components/Pomodoro";
 import Settings from "./components/Settings";
-import Login from "./components/Login";
-import Register from "./components/Register";
 import Description from "./components/Description";
 import Footer from "./components/Footer";
 
@@ -48,12 +46,6 @@ class App extends React.Component {
               </div>
               <Description />
               <Footer />
-            </Route>
-            <Route path="/login">
-              <Login />
-            </Route>
-            <Route path="/register">
-              <Register />
             </Route>
             <Route path="/">
               <div className="container">

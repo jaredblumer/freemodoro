@@ -2,8 +2,6 @@ import {
   INCREMENT_ROUND,
   TOGGLE_BREAK,
   SAVE_SETTINGS,
-  LOGIN,
-  LOGOUT,
   TOGGLE_SHORTBREAK,
   TOGGLE_LONGBREAK,
   TOGGLE_POMODORO
@@ -12,19 +10,6 @@ import {
 export const incrementRound = () => {
   return {
     type: INCREMENT_ROUND
-  };
-};
-
-export const login = username => {
-  return {
-    type: LOGIN,
-    payload: username
-  };
-};
-
-export const logout = () => {
-  return {
-    type: LOGOUT
   };
 };
 
