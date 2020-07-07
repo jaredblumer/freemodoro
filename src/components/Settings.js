@@ -83,7 +83,7 @@ class Settings extends React.Component {
             <h1>Freemodoro</h1>
           </div>
           <div className="menu">
-            <Link to="/Home">
+            <Link to="/">
               <button className={foreground}>Home</button>
             </Link>
           </div>

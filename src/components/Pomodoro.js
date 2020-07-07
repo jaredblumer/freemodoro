@@ -253,7 +253,7 @@ class Pomodoro extends React.Component {
             <h1>Freemodoro</h1>
           </div>
           <div className="menu">
-            <Link to="/Settings">
+            <Link to="/settings">
               <button className={foreground}>Settings</button>
             </Link>
           </div>
