@@ -83,9 +83,9 @@ class Settings extends React.Component {
             <h1>Freemodoro</h1>
           </div>
           <div className="menu">
-            <Link to="/">
-              <button className={foreground}>Home</button>
-            </Link>
+            <button className={foreground} type="button" onClick={this.save}>
+              Home
+            </button>
           </div>
         </header>
         <div id="settings-display" className={foreground}>
@@ -173,16 +173,6 @@ class Settings extends React.Component {
             <div className="slider-output">
               <output id="dailyGoalOutput"></output>
             </div>
-          </div>
-          <div className="button-container">
-            <button
-              className={foreground}
-              type="button"
-              id="save-button"
-              onClick={this.save}
-            >
-              Save
-            </button>
           </div>
         </div>
       </div>

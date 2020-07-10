@@ -294,10 +294,6 @@ p:last-of-type {
   padding: 2px 6px;
 }
 
-#save-button {
-  border: 1px solid white;
-}
-
 .Settings button {
   border: 0;
   border-radius: 4px;
