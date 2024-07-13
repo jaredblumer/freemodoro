@@ -5,8 +5,7 @@ class Description extends React.Component {
     return (
       <div className="description-container">
         <h1>
-          Improve your focus and boost your productivity with this free and open
-          source Pomodoro Timer
+        Improve Your Focus and Boost Your Productivity With This Free and Open Source Pomodoro Timer
         </h1>
         <h2>What is a Pomodoro Timer?</h2>
         <p>
