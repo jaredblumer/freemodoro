@@ -8,7 +8,7 @@ import {
   TOGGLE_POMODORO
 } from "../actions/types";
 
-export default function(state, action) {
+function rootReducer(state, action) {
   switch (action.type) {
     case INCREMENT_ROUND:
       if (state.data.currentRound === state.data.totalRound - 1) {
@@ -85,3 +85,5 @@ export default function(state, action) {
       return state;
   }
 }
+
+export default rootReducer;
