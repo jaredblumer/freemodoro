@@ -5,13 +5,13 @@ class Footer extends React.Component {
     return (
       <footer>
         Built by{" "}
-        <a className="footer-links" href="https://github.com/jaredblumer">
-          Jared Blumer
+        <a className="footer-links" href="https://github.com/shyblumer">
+          Shy Blumer (they/them)
         </a>
         {" | "}
         <a
           className="footer-links"
-          href="https://github.com/jaredblumer/freemodoro"
+          href="https://github.com/shyblumer/freemodoro"
         >
           GitHub
         </a>
