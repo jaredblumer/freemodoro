@@ -3,9 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@testing-library/jest-dom": "^5.17.0",
-    "@testing-library/react": "^13.4.0",
-    "@testing-library/user-event": "^13.5.0",
+    "@testing-library/jest-dom": "^4.2.4",
+    "@testing-library/react": "^9.3.2",
+    "@testing-library/user-event": "^7.1.2",
     "bcrypt": "^5.1.1",
     "body-parser": "^1.19.0",
     "cookie-parser": "^1.4.5",
@@ -14,28 +14,24 @@
     "jsonwebtoken": "^9.0.2",
     "mongoose": "^5.9.11",
     "prop-types": "^15.7.2",
-    "react": "^18.3.1",
-    "react-dom": "^18.3.1",
+    "react": "^16.13.0",
+    "react-dom": "^16.13.0",
     "react-redux": "^7.2.0",
     "react-router-dom": "^5.1.2",
-    "react-scripts": "5.0.1",
+    "react-scripts": "^5.0.1",
     "redux": "^4.0.5",
     "redux-thunk": "^2.3.0",
-    "regenerator-runtime": "^0.13.5",
-    "web-vitals": "^2.1.4"
+    "regenerator-runtime": "^0.13.5"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
+    "test": "jest",
     "test:watch": "npm test -- --watch",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
+    "extends": "react-app"
   },
   "browserslist": {
     "production": [
@@ -50,7 +46,21 @@
     ]
   },
   "license": "GPL-3.0-only",
+  "resolutions": {
+    "@babel/preset-env": "7.5.5"
+  },
+  "babel": {
+    "presets": [
+      "@babel/preset-env",
+      "@babel/preset-react"
+    ],
+    "plugins": [
+      "@babel/plugin-transform-runtime"
+    ]
+  },
   "devDependencies": {
+    "@babel/preset-env": "^7.9.5",
+    "@babel/preset-react": "^7.9.4",
     "identity-obj-proxy": "^3.0.0"
   },
   "jest": {
