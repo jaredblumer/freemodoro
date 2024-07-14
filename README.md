@@ -1,6 +1,8 @@
 # Freemodoro
 Improve Your Focus and Boost Your Productivity With This [Free and Open Source Pomodoro Timer](https://freemodoro-cbc150480d4a.herokuapp.com/)
 
+![Freemodoro Screen Capture](https://github.com/shyblumer/freemodoro/blob/master/src/assets/freemodoro_screen_capture.gif)
+
 ## What is a Pomodoro Timer?
 The Pomodoro Technique is a time management method developed by Francesco Cirillo. The technique uses a timer to break down work into intervals, traditionally 25 minutes, separated by short breaks of five minutes. Each interval is known as a pomodoro, named after a tomato-shaped kitchen timer that Cirillo used as a student. Research has shown that our brains aren't built to focus for hours at a time, and the most effective method to refresh attention spans is to take a break.
 
