@@ -59,7 +59,7 @@
     ]
   },
   "devDependencies": {
-    "@babel/preset-env": "^7.22.3",
+    "@babel/preset-env": "^7.9.5",
     "@babel/preset-react": "^7.9.4",
     "identity-obj-proxy": "^3.0.0"
   },
