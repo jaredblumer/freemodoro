@@ -22,6 +22,6 @@ A recent study conducted by the Draugiem Group found that the most productive em
 Distributed under GNU General Public License v3.0. See `LICENSE` for more information.
 
 ## Author
-**Shy Blumer** (they/them), Full-Stack Software Engineer and Data Analyst 🏳️‍🌈🏳️‍⚧️  
+**Jared Blumer**, Full-Stack Software Engineer and Data Analyst
 - [GitHub](https://github.com/jaredblumer)
 - [LinkedIn](https://www.linkedin.com/in/jaredblumer/)
