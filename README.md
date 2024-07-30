@@ -23,6 +23,5 @@ Distributed under GNU General Public License v3.0. See `LICENSE` for more inform
 
 ## Author
 **Shy Blumer** (they/them), Full-Stack Software Engineer and Data Analyst 🏳️‍🌈🏳️‍⚧️  
-- [GitHub](https://github.com/shyblumer)
-- [LinkedIn](https://www.linkedin.com/in/shyblumer/)
-- [Résumé](https://www.imshy.net/resume)
+- [GitHub](https://github.com/jaredblumer)
+- [LinkedIn](https://www.linkedin.com/in/jaredblumer/)
