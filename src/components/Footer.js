@@ -6,12 +6,12 @@ class Footer extends React.Component {
       <footer>
         Built by{" "}
         <a className="footer-links" href="https://github.com/shyblumer">
-          Shy Blumer (they/them)
+          Jared Blumer
         </a>
         {" | "}
         <a
           className="footer-links"
-          href="https://github.com/shyblumer/freemodoro"
+          href="https://github.com/jaredblumer/freemodoro"
         >
           GitHub
         </a>
