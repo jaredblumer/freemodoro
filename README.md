@@ -1,7 +1,5 @@
 # Freemodoro
-Improve Your Focus and Boost Your Productivity With This Free and Open Source Pomodoro Timer.
-
-> **Freemodoro is no longer hosted.** You can run it locally by following the [instructions below](#running-locally). The screen capture below shows the app in action.
+Improve Your Focus and Boost Your Productivity With This [Free and Open Source Pomodoro Timer](https://jaredblumer.github.io/freemodoro/).
 
 ![Freemodoro Screen Capture](./src/assets/freemodoro_screen_capture.gif)
 
